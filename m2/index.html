@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="title" content="알름두들러 웹앱">
+    <meta name="keywords" content="알름두들러, 알름, 두들러, 몰름두들러">
+    <meta name="auther" content="yeo">
+    <meta name="description" content="알름두들러">
+    <title>알름두들러</title>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/favicon.png">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="script/main.js"></script>
+    <script src="./xeicon/bootstrap.min.js"></script>
+    <script src="./xeicon/jquery.min.js"></script>
+    <script src="./script/common.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://github.com/necolas/normalize.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="./xeicon/xeicon.min.css">
+    <style>
+    .item1{width: 100%;height: auto;padding-top: 15%;margin-bottom: -10px;}
+    .icon_lst{position: relative;}
+    .ico1{width: 100%;height: auto;}
+    .ico_tit1{position: absolute;top: 20%;font-size: 1.4em;left: 10px;font-weight: bold;text-align: center;}
+    .color{color: #ec4b43;text-align: center;line-height: 1.6;}
+    .ico_com1{position: absolute;top: 50%;text-align: left;font-size: 0.8em;left: 10px;font-weight: 600;}
+    .item2{width: 50%;float: left;background: #ec4b43;border-right: 1px solid #ec4b43;box-sizing: border-box;
+    position: relative;height: 250px;}
+    .item2 a{width: 100%;height: 100%;color: #ffffff;}
+    .item3{width: 50%;float: left;background: #ffffff;border-left: 1px solid #ffffff;box-sizing: border-box;
+    position: relative;height: 250px;}
+    .item3 a{width: 100%;height: 100%;color: #ec4b43;}
+    .ico2{width: 50%;background-color: #fff;border-radius: 50%;position: absolute;bottom: 10px;right: 10px;}
+    .ico_tit2{font-weight: bold;font-size: 24px;padding: 10px;text-align: center;}
+    .ico_com2{font-size: 1em;padding: 10px;text-align: left;}
+    .ico3{width: 50%;background: #ec4b43;border-radius: 50%;position: absolute;bottom: 10px;right: 10px;}
+    .ico_tit3{font-weight: bold;font-size: 24px;text-align: center;padding: 10px;}
+    .ico_com3{font-size: 0.95em;padding: 10px;text-align-last: left;}
+    .my_page{ width: 100%;height:500px;}
+    .my_tit{text-indent: 1em;font-size: 18px;line-height: 2;float: left;}
+    .my_tit::after{content:"";float:right;background-image: url("./img/line.png");background-size: 100% 100%;
+    display: block;width: 150px;height: 30px;margin-left: 10px;}
+    .vdo1{width: 300px;height: auto;display: block;margin: 0 auto;padding-top: 20px;}
+    </style>
+</head>
+<body>
+    <header class="hd">
+        <button class="lst_btn"></button>
+        <a href="index.html" class="logo">로고</a>
+        <button class="sns">sns</button>
+        <button class="ev">event</button>
+        <button class="log">login</button>
+    </header>
+    <ul class="icon_lst">
+        <li class="item1">
+            <img src="./img/main1.1.png" alt="메인이미지" class="ico1">
+            <h3 class="ico_tit1">오스트리아 국민음료 <p class="color">알름두들러</p></h3>
+            <div class="ico_com1">
+            <p>오스트리아내 브랜드 인지도 99% <p class="color">알프스 천연허브 + 알프스 암반수<span style="color: #333333;">로 만든 탄산음료</span></p>
+        한번 먹어보면 잊지 못하는 맛</p></div>
+        </li>
+        <li class="item2"><a href="sub2.html">
+            <img src="./img/cart.png" alt="쇼핑" class="ico2">
+            <h3 class="ico_tit2">상품리스트</h3>
+            <p class="ico_com2">알름두들러<br>상품 리스트 보기</p></a>
+        </li>
+        <li class="item3"><a href="sub1.html">
+            <img src="./img/help.png" alt="cs센터" class="ico3">
+            <h3 class="ico_tit3">CS.center</h3>
+            <p class="ico_com3">알름두들러<br>고객센터입니다.<br>무엇을 도와드릴까요?</p></a>
+        </li>
+    </ul>
+    <div class="sns_box">
+        <ul class="sns_lst">
+            <li class="sns1"><a href="http://www.facebook.com"></a></li>
+            <li class="sns2"><a href="http://www.twitter.com"></a></li>
+            <li class="sns3"><a href="http://www.naver.com"></a></li>
+            <li class="sns4"><a href="https://www.youtube.com"></a></li>
+        </ul>
+        <button class="close" style="background-color: #666666;"></button>
+    </div>
+    <div class="log_box">
+        <h3 class="collap_tit">로그인</h3>
+        <form action="" class="frm1">
+            <input type="text" id="m_id" class="in_frm" placeholder="아이디">
+            <input type="password" id="m_pw" class="in_frm" placeholder="비밀번호">
+            <fieldset class="btn_fr">
+                <input type="submit" class="btn_frm" value="로그인">
+                <input type="reset" class="btn_frm reset" value="취소" style="border-left: 1px solid #ccc;">
+            </fieldset>
+        </form>
+    </div>
+    <div class="event_box">
+        <img src="./img/sub.jpg" alt="이벤트이미지" class="event_pic">
+        <button class="close"></button>
+    </div>
+    <div class="gnb">
+            <div class="lst_box">
+                <div class="log_fr">
+                    <img src="./img/log.png" alt="프로필사진">
+                    <button class="log_btn">로그인</button>
+                    <button class="close"></button>
+                </div>
+            </div>
+            <ul class="lst_status">
+                <li>
+                    <span class="num">0</span>
+                    <span class="sta">stay</span>
+                </li>
+                <li>
+                    <span class="num">0</span>
+                    <span class="sta">taste</span>
+                </li>
+                <li>
+                    <span class="num">0</span>
+                    <span class="sta">move</span>
+                </li>
+            </ul>
+            <ul class="main">
+                <li class="item"><a href="index.html">ALMDUDLER</a></li>
+                <li class="item"><a href="sub1.html">CS.CENTER</a></li>
+                <li class="item"><a href="sub2.html">SHOP</a></li>
+            </ul>
+        </div>
+        <section class="my_page">
+            <h3 class="my_tit">알름두들러 미디어</h3>
+            <div id="my_fr">
+                <iframe class="vdo1" width="300" height="auto" src="https://www.youtube.com/embed/Aj0eMIy_Q_Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+        <footer class="ft">
+            <nav class="fnb">
+                <ul class="menu">
+                    <li><a href="">회원약관</a></li>
+                    <li><a href="">개인정보처리방침</a></li>
+                </ul>
+            </nav>
+            <p class="copyright">Copyright &copy; 2018 주식회사서명. <br> All Rights Reserved.</p>
+        </footer>
+</body>
+</html>

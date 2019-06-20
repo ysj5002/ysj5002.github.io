@@ -1,0 +1,46 @@
+	
+	모바일 제2 과제
+	
+		-소재 : 음료/식품/약품
+		-주제 : 본인이 자율적으로 해당 소재를 채택하여 주제를 선정한다.
+		
+		샘플 사이트 : https://www.jejugage.co.kr/mobile/index.do
+	
+		해당 샘플 사이트와 같이 본인이 선택한 주제의 사이트를 리디자인 또는 제작하시오.
+
+		필히 본인이 선택한 주제의 사이트를 위한 텍스트, 이미지 ,동영상, 사운드 데이터를 준비해주세요
+
+
+
+	헤더 header.hd>button.lst_btn+a.logo+button.(sns,ev,log)*3
+	|
+	메뉴 div.lst_box>div.log_fr>img+button
+	         ul.lst_status>li*3>span*2
+	         ul.main>li.item*3>a
+	         button.close
+	|
+	로그인창 div.log_box                            >button.close
+	이벤트창 div.ev_box                             >button.close
+	SNS창 div.sns_box>ul.sns_lst>li.sns*4>a
+	             button.close
+
+
+	ul.icon_lst
+	|
+	li.item1>img.ico+h3.ico_tit+p.ico_com
+	|
+	li.item2>img.ico+h3.ico_tit+p.ico_com
+	|
+	li.item2>img.ico+h3.ico_tit+p.ico_com
+
+
+	section.mv_page
+	|
+	h3.sec_tit
+	|
+	div#mv_fr>video#vdo1+button#play_btn
+
+
+	footer.ft
+	|
+	nav.fnb>ul.menu>li*2>a+p.copyright

@@ -1,0 +1,7 @@
+@charset "utf-8";
+@font-face{
+    font-family: "test";
+    src: :local("test"),url("../fonts/test.eot#iefix"),
+    url("../fonts/test.ttf")format("truetype"),
+    url("../fonts/test.woff")format("woff");
+}
