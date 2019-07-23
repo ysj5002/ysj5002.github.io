@@ -1,0 +1,41 @@
+
+	모바일 제3 과제
+	
+		- 소재 : 대학교/대학원/학술단체/사설학원
+		- 주제 : 본인이 자율적으로 해당 소재를 채택하여 주제를 선정한다.
+
+		샘플 사이트 : https://m.pagoda21.com/m/main.do
+
+		해당 샘플 사이트와 같이 본인이 선택한 주제의 사이트를 리디자인 또는 제작하시오.
+
+		필히 본인이 선택한 주제의 사이트를 위한 텍스트, 이미지, 동영상, 사운드 데이터를 준비해주세요.
+	
+
+	메인화면 스크롤 내릴 시 메뉴창 숨기기
+
+	$(document).ready(function(){
+	var ht = parseInt($(window).height());
+	$(window).scroll(function(){
+	    var sc = parseInt($(window).scrollTop());
+	if(sc>=ht){
+	 $(".메뉴창").css("right","-120%");
+	}else{
+	 $(".메뉴창").css("right","0%");
+	}
+	});
+	});
+
+
+	메뉴버튼 클릭 시 서브메뉴영역 보이게하기
+
+	$(document).ready(function(){
+	var sw = true;
+	$(".메뉴버튼").click(function(){
+	    if(sw){
+	        $(".서브메뉴영역").stop().animate({"right":"0%"},300);
+	    }else{
+	        $(".서브메뉴영역").stop().animate({"right":"-85%"},300);
+	    };
+	    sw=!sw;
+  	  });	
+	});
