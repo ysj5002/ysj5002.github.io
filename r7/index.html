@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>print bakery</title>
+    <link rel="shortcut icon" href="./favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <style>
+    *{margin: 0;padding: 0;}
+    body,html{width: 100%;font-family: 'Noto sans KR', sans-serif;font-size: 14px;}
+    ul{list-style: none;}
+    a{text-decoration: none;}
+    input,label,button{outline: none;border: none;background-image: none;background-color: transparent;}
+    .wrap{max-width: 1600px;margin: 0 auto;}
+    .hd{width: 320px;height: 100vh;position: fixed;border-right: 1px solid #ccc;box-sizing: border-box;}
+    .logo{display: block;width: 240px;margin: 50px;}
+    .logo img{width: 240px;height: auto;}
+    .gnb{position: relative;margin-left: 50px;margin-bottom: 50px;}
+    .gnb::after{content: "";width: 50px;height: 3px;background: #333333;display: block;margin-top: 20px;}
+    .gnb li{width: 100%;}
+    .gnb li a{display: block;font-size: 16px;color: #333333;line-height: 3;}
+    .gnb>li>a::after{content: "+";float: right;margin-right: 50px;font-weight: bold;}
+    .gnb>li>a.on::after{content: "-";}
+    .gnb>li:nth-of-type(1)>a::after{display: none;}
+    .gnb>li:nth-of-type(4)>a::after{display: none;}
+    .gnb>li:nth-of-type(5)>a::after{display: none;}
+    .gnb>li:nth-of-type(6)>a::after{display: none;}
+    .gnb>li:nth-of-type(7)>a::after{display: none;}
+    .sub{display: none;position: relative;}
+    .sub li{width: 100%;}
+    .sub li a{font-size: 12px;text-indent: 1em;display: block;}
+    .ft{width: 100%;position: relative;margin-left: 50px;}
+    .fnb li{width: 100%;}
+    .fnb li a{display: block;color: #333333;line-height: 2;}
+    .copy{padding-top: 50px;}
+    .con_lst{width: 1280px;height: 100%;margin-left: 320px;}
+    .con_lst>li{width: 320px;height: 320px;background-color: #cccccc;background-repeat: no-repeat;
+    background-size: cover;background-position: center center;float: left;margin: 50px;overflow: hidden;
+border-radius: 0 15px 0 15px;}
+.con_lst>li.it1{width: 740px;position: relative;}
+.imgbox{width: 300%;height: 100%;}
+.imgbox li{background-repeat: no-repeat;float: left;
+    background-size: cover;background-position: center center;width: 33.3333%;height: 100%;}
+    .imgbox li.it1{background-image: url("vs4.png");}
+    .imgbox li.it2{background-image: url("vs5.png");}
+    .imgbox li.it3{background-image: url("vs6.png");}
+    .imgbox li a{display: block;width: 100%;height: 100%;}
+    .btn_frame{width: 100px;height: 30px;position: absolute;left: calc(50% - 50px);bottom: 0;}
+    .btn_frame li{float: left;width: 33.3333%;}
+    .btn_frame li a{display: block;width: 12px;height: 12px;border: 1px solid #fff;
+    border-radius: 50%;}
+    .btn_frame li a.on{background: #fff;}
+    .con_tit{text-align: center;font-size: 2.2em;}
+    .con_lst>li.it3{width: 1160px;height: 400px;}
+    .md_lst{width: 300%;height: 100%;}
+    .md_lst li{width: 11.1111%;height: 100%;float: left;background-repeat: no-repeat;
+        background-position: center center;background-size: cover;}
+    .md_lst li.it1{background-image: url("thum1.jpg");}
+    .md_lst li a{display: block;width: 100%;height: 100%;transition: 0.4s;}
+    .md_lst li a:hover{background: rgba(0,0,0,0.7);}
+    .md_lst li a:hover .txtbox{opacity: 1;}
+    .txtbox{width: 90%;margin: 0 auto;height: 90%;text-align: center;color: #ffffff;opacity: 0;
+    transition: 0.4s;}
+    .artist{padding: 30px 0;padding-top: 20%;font-size: 16px;}
+    .md_tit{padding: 10px 0;padding-bottom: 10%;font-size: 20px;}
+    .more{width: 100px;height: 30px;border: 1px solid #fff;padding: 10px;text-align: center;
+    line-height: 30px;color: #fff;margin: 0 auto;font-weight: bold;font-size: 16px;}
+    .md_lst li.it2{background-image: url("thum2.jpg");}
+    .md_lst li.it3{background-image: url("thum3.jpg");}
+    .md_lst li.it4{background-image: url("thum4.jpg");}
+    .md_lst li.it5{background-image: url("thum5.jpg");}
+    .md_lst li.it6{background-image: url("thum6.jpg");}
+    .md_lst li.it7{background-image: url("thum7.jpg");}
+    .md_lst li.it8{background-image: url("thum8.jpg");}
+    .md_lst li.it9{background-image: url("thum9.jpg");}
+    .con_lst li.it5{width: 740px;}
+    .con_lst li.it5{background-image: url("vs1.jpg");}
+    .con_lst li.it5>div{display: block;width: 100%;height: 100%;background-color: rgba(0,0,0,0.7);color: #ffffff;}
+    .con_lst li.it5>div .tit{padding: 1em;font-size: 2.6em;}
+    .con_lst li.it5>div .com{font-size: 18px;padding-left: 2em;}
+    .con_lst li.it5>div .go{width: 140px;height: 40px;border: 1px solid #fff;text-align: center;display: block;
+    line-height: 40px;margin: 0 auto;margin-top: 40px;transition: 0.3s;font-weight: bold;color: #ffffff;}
+    .con_lst li.it5>div .go:hover{background: #ffffff;color: #333333;}
+    .con_lst li.it2>a{display: block;width: 100%;height: 100%;}
+    .con_lst>li.it2{background-image: url("office.png");transition: 0.5s;}
+    .con_lst>li.it2:hover{box-sizing: border-box;box-shadow: 0px 0px 15px #111;}
+    .con_lst>li.it4{height: 740px;}
+    .con_lst>li.it4 .top{height: 500px;background-image: url("artist1.jpg");
+background-position: center top;background-size: contain;background-repeat: no-repeat;}
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(".gnb>li>a").click(function(){
+            $(this).siblings(".sub").stop().not(":animated").slideDown(500);
+            $(this).addClass("on");
+            return false;
+        });
+        $(document).mousedown(function(){
+            $(".sub").slideUp(500);
+            $(".gnb>li>a").removeClass("on");
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+    <header class="hd">
+        <a href="" class="logo"><img src="./logo1.png" alt="로고"></a>
+        <ul class="gnb">
+            <li class="it1"><a href="">ABOUT</a></li>
+            <li class="it2"><a href="">COLLECTION
+                
+            </a><ul class="sub">
+                    <li><a href="">Edition</a></li>
+                    <li><a href="">Original</a></li>
+                    <li><a href="">David Gerstein</a></li>
+                </ul></li>
+            <li class="it3"><a href="">GOODS
+                
+            </a><ul class="sub">
+                    <li><a href="">Tableware</a></li>
+                    <li><a href="">Home deco</a></li>
+                    <li><a href="">Fashion</a></li>
+                    <li><a href="">Office</a></li>
+                    <li><a href="">THE SKATE ROOM</a></li>
+                    <li><a href="">Art poster</a></li>
+                </ul></li>
+            <li class="it4"><a href="">ARTIST</a></li>
+            <li class="it5"><a href="">RENTAL & CONSULTING</a></li>
+            <li class="it6"><a href="">REVIEW</a></li>
+            <li class="it7"><a href="">Curator's pick</a></li>
+            <li class="it8"><a href="">NEWS
+                
+            </a><ul class="sub">
+                    <li><a href="">NOTICE</a></li>
+                    <li><a href="">EXHIBITION</a></li>
+                </ul></li>
+        </ul>
+        <div class="ft">
+            <ul class="fnb">
+                <li class="it1"><a href="">개인정보취급방침</a></li>
+                <li class="it2"><a href="">이용약관</a></li>
+                <li class="it3"><a href="">회사소개</a></li>
+            </ul>
+            <div class="copy">© print Bakery. all rights reserved.</div>
+        </div>
+    </header>
+    <ul class="con_lst">
+        <li class="it1">
+            <ul class="imgbox">
+                <li class="it1"><a href=""></a></li>
+                <li class="it2"><a href=""></a></li>
+                <li class="it3"><a href=""></a></li>
+            </ul>
+            <ul class="btn_frame">
+                <li class="btn1"><a href="" class="on"></a></li>
+                <li class="btn2"><a href=""></a></li>
+                <li class="btn3"><a href=""></a></li>
+            </ul>
+        </li>
+        <li class="it2"><a href=""></a></li>
+        <h2 class="con_tit">MD's Pick</h2>
+        <li class="it3">
+            <ul class="md_lst">
+                <li class="it1"><a href="">
+                    <div class="txtbox">
+                    <p class="artist">김병종</p>
+                    <p class="md_tit">생명의 노래1/Song of Life1</p>
+                    <div class="more">MORE</div></div>
+                </a></li>
+                <li class="it2"><a href="">
+                    <div class="txtbox">
+                        <p class="artist">박서보</p>
+                        <p class="md_tit">Ecriture 描法 No.070324</p>
+                        <div class="more">MORE</div>
+                    </div>
+                </a></li>
+                <li class="it3"><a href="">
+                    <div class="txtbox">
+                        <p class="artist">박서보</p>
+                        <p class="md_tit">Ecriture 描法 No.218-85</p>
+                        <div class="more">MORE</div>
+                    </div>
+                </a></li>
+                <li class="it4"><a href="">
+                    <div class="txtbox">
+                        <p class="artist">박서보</p>
+                        <p class="md_tit">Ecriture 描法 No.40-73</p>
+                        <div class="more">MORE</div>
+                    </div>
+                </a></li>
+                <li class="it5"><a href="">
+                    <div class="txtbox">
+                        <p class="artist">김환기</p>
+                        <p class="md_tit">12-V-70 #172</p>
+                        <div class="more">MORE</div>
+                    </div>
+                </a></li>
+                <li class="it6"><a href="">
+                    <div class="txtbox">
+                        <p class="artist">김병종</p>
+                        <p class="md_tit">생명의 노래-풍경</p>
+                        <div class="more">MORE</div>
+                    </div>
+                </a></li>
+                <li class="it7"><a href="">
+                    <div class="txtbox">
+                        <p class="artist">김종학</p>
+                        <p class="md_tit">설악산 풍경</p>
+                        <div class="more">MORE</div>
+                    </div>
+                </a></li>
+                <li class="it8"><a href="">
+                    <div class="txtbox">
+                        <p class="artist">티보 에렘</p>
+                        <p class="md_tit">PB x Thibaud Herem</p>
+                        <div class="more">MORE</div>
+                    </div>
+                </a></li>
+                <li class="it9"><a href="">
+                    <div class="txtbox">
+                        <p class="artist">티보 에렘</p>
+                        <p class="md_tit">PB x Thibaud Herem</p>
+                        <div class="more">MORE</div>
+                    </div>
+                </a></li>
+            </ul>
+        </li>
+        <li class="it4">
+            <div class="top"></div>
+            <div class="bot"></div>
+        </li>
+        <li class="it5"><div>
+            <h3 class="tit">Art Consulting</h3>
+            <p class="com">프린트베이커리의 전문 아트 컨설턴트가 직접 방문 하여<br>
+                    고객님의 취향 및 공간 특성에 맞는 작품을 추천해 드립니다.</p>
+                    <a href="" class="go"> 무료 방문 신청하기</a>
+            </div></li>
+        <li class="it6"><a href=""></a></li>
+        <li class="it7"><a href=""></a></li>
+        <li class="it8"><a href=""></a></li>
+        <li class="it9"><a href=""></a></li>
+        <li class="it10"><a href=""></a></li>
+        <li class="it11"><a href=""></a></li>
+    </ul>
+    </div>
+    
+    
+</body>
+</html>
