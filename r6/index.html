@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>한화자산운용</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <style>
+    *{margin: 0;padding: 0;}
+    body,html{width: 100%;font-family: 'Noto sans KR', sans-serif;font-size: 14px;}
+    ul{list-style: none;}
+    a{text-decoration: none;}
+    input,label,button{outline: none;border: none;background-image: none;background-color: transparent;}
+    .hd{width: 100%;height: 100px;background: #ffffff;position: fixed;z-index: 500;}
+    .hdwrap{width: 80%;margin: 0 auto;}
+    .logo{display: block;width: 229px;height: 57px;margin-top: 21px;float: left;}
+    .gnb{float: right;}
+    .gnb li{float: left;position: relative;}
+    .gnb li::before{content: "";display: block;width: 10px;height: 100px;background-image: url("./pat1.png");
+    background-repeat: no-repeat;background-size: contain;background-position: center center;
+    position: absolute;top: 0;right: 0;}
+    .gnb li:last-of-type::before{background-image: none;}
+    .gnb li a{font-size: 1.3em;color: #333333;font-weight: bold;line-height: 100px;padding: 0 60px;
+    transition: 0.3s;}
+    .gnb li:hover a{color: #f37321;}
+    .lang{float: right;height: 100px;margin-top: 28px;margin-right: 5em;}
+    .lang li{width: 40px;height: 40px;float: left;margin-right: 20px;}
+    .lang li.on a{background: #f37321;color: #ffffff;}
+    .lang li a{color: #f37321;text-align: center;line-height: 40px;display: block;border-radius: 50%;
+    border: 1px solid #f37321;box-sizing: border-box;}
+    .content{width: 100%;height: 100vh;}
+    #page1 img{width: 100%;height: calc(100vh - 100px);margin-top: 100px;}
+    #page1{position: relative;}
+    .vs_tit{font-size: 5em;position: absolute;top: 25%;color: #ffffff;width: 100%;text-align: center;}
+    #page2{overflow: hidden;position: relative;}
+    .img_box{width: 100%;height: 100vh;}
+    .img_box li{float: left;width: 100%;height: 100%;background-position: center center;
+    background-size: cover;background-repeat: no-repeat;position: absolute;display: none;}
+    .img_box li.on{display: block;}
+    .img_box li.it1{background-image: url("./slide1-1.jpg");}
+    .img_box li.it2{background-image: url("./slide2-1.jpg");}
+    .th{width: 200%;height: 100%;background: #ffffff;z-index: 10;position: absolute;left: 0;bottom: -80%;
+    transform: rotate(-5deg);}
+    .con_tit{color: #ffffff;font-size: 4em;transition: 0.6s;}
+    .con_com{color: #ffffff;font-size: 1.6em;transition: 0.6s;}
+    .con_wrap{width: 50%;height: 50%;margin-top: 15%;margin-left: 10%;}
+    .con_tit2{color: #ffffff;font-size: 5em;transition: 0.6s;width: 300px;height: 300px;letter-spacing: 0.7em;}
+    .con_com2{color: #ffffff;font-size: 1.6em;transition: 0.6s;margin-top: 20px;}
+    .con_wrap2{width: 50%;height: 50%;margin-top: 10%;margin-left: 18%;}
+    .btn_frame{width: 30px;height: 50px;position: absolute;right: 10%;top: calc(50% - 50px);z-index: 99;}
+    .btn_frame li{height: 50px;width: 30px;}
+    .btn_frame li a{width: 15px;height: 25px;cursor:pointer;background: #ffffff;display: block;transform: skew(-20deg);}
+    .btn_frame li a.on{background: #cccccc;}
+    .con_lst{width: 80%;margin: 80px auto 20px auto;height: 80%;}
+    .con_lst li{width: 45%;float: left;height: 48%;padding: 1% 2.5%;position: relative;
+    background-repeat: no-repeat;background-size: 90% 90%;background-position: center center;transition: 0.4s;}
+    .con_lst li.it3:hover{background-size: 100% 100%;}
+    .con_lst li.it3:hover .bg{transform: scale(1.1);}
+    .con_lst li.it3:hover .line{transform: scale(1.1);}
+    .con_lst li.it4:hover{background-size: 100% 100%;}
+    .con_lst li.it4:hover .bg{transform: scale(1.1);}
+    .con_lst li.it4:hover .line{transform: scale(1.1);}
+    .con_lst .it1{background-image: url("./int1.jpg");}
+    .con_lst .it3{background-image: url("./sub2.png");}
+    .line{border: 1px solid #fff;width: 90%;height: 90%;margin: 0 auto;margin-top: 2.5%;z-index: 10;
+    transition: 0.4s;}
+    .bg{background-color: rgba(0,0,0,0.6);width: 90%;height: 90%;position: absolute;left: 5%;top: 5%;
+    transition: 0.4s;}
+    .ban_tit{color: #ffffff;font-size: 4em;text-align: center;margin-top: 15%;}
+    .ban_com{color: #ffffff;font-size: 1.2em;text-align: center;}
+    .sub_tit{color: #cccccc;font-size: 1.4em;padding-top: 3%;}
+    .sub_com{font-size: 2.4em;padding-top: 20px;}
+    .sub_com2{color: #bbbbbb;padding-top: 20px;font-size: 1.4em;}
+    .read{display: block;color: #333333;font-weight: bold;margin-top: 10%;position: relative;
+    transition: 0.4s;}
+    .read::before{width: 120px;height: 2px;content: "";display: block;background: #333333;
+    position: absolute;right: 103%;top: 10px;transition: 0.4s;}
+    .read:hover{color: #f37321;}
+    .read:hover::before{background: #f37321;}
+    .con_lst .it4{background-image: url("./sub3.jpg");}
+    #page4{background-repeat: no-repeat;background-position: center center;background-size: cover;
+    background-image: url("./sub1.jpg");position: relative;}
+    .bg2{background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;position: absolute;left: 0;top: 0;}
+    .tit{color: #ffffff;text-align: center;font-size: 2.4em;padding-top: 20%;}
+    .more{color: #ffffff;font-size: 1.2em;border: 2px solid #fff;width: 140px;height: 40px;text-align: center;
+    margin: 0 auto;display: block;line-height: 40px;margin-top: 40px;transition: 0.4s;font-weight: bold;
+    letter-spacing: 2px;}
+    .more:hover{background: #fff;color: #333333;}
+    .ft{width: 100%;height: 200px;background: #9e4a16;position: relative;}
+    .ft::after{width: 100%;height: 1px;background: #ffffff;content: "";display: block;
+    position: absolute;left: 0;top: 40px;}
+    .ft_wrap{width: 80%;height: 200px;margin: 0 auto;}
+    .fnb{width: 100%;clear: both;}
+    .fnb li{float: left;width: 14%;}
+    .fnb li a{color: #ffffff;text-align: center;display: block;padding: 10px 0;}
+    .fcom{clear: both;color: #ffffff;line-height: 2.2;padding-top: 10px;}
+    .copy{color: #ddd;padding-top: 20px;font-weight: bold;}
+    .top_btn{position: fixed;right: 2%;bottom: 2%;width: 40px;height: 50px;color: #ffffff;background: #f37321;
+    line-height: 50px;text-align: center;transform: skew(-15deg,-5deg);z-index: 9999;}
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+    $(document).ready(function(){
+        
+    });
+    </script>
+</head>
+<body>
+    <header class="hd">
+        <div class="hdwrap">
+        <a href="index.html" class="logo"><img src="./logo.png" alt="로고"></a>
+        <ul class="lang">
+            <li class="on"><a href="">KOR</a></li>
+            <li class=""><a href="">ENG</a></li>
+        </ul>
+        <ul class="gnb">
+            <li><a href="">회사소개</a></li>
+            <li><a href="">펀드상품</a></li>
+            <li><a href="">Ch.펀드</a></li>
+            <li><a href="">공지사항/뉴스</a></li>
+        </ul>
+    </div>
+    </header>
+    <aside class="ad">
+
+    </aside>
+    <div class="content" id="page1">
+        <img src="./vs.jpg" alt="메인이미지">
+        <h1 class="vs_tit">LIFE MEETS LIFE</h1>
+    </div>
+    <div class="content" id="page2">
+        <ul class="img_box">
+            <li class="it1 on">
+                <div class="con_wrap">
+                <h1 class="con_tit">Enriching Your Tomorrow</h1>
+                <p class="con_com">한화자산운용이 고객의 풍요로운 내일을 만들어갑니다.</p>
+            </div>
+            </li>
+            <li class="it2">
+                <div class="con_wrap2">
+                <h1 class="con_tit2">LIFE MEETS LIFE</h1>
+                <p class="con_com2">한화자산운용이 <br> 고객의 풍요로운 내일을 만들어갑니다.</p>
+            </div>
+            </li>
+        </ul>
+        <div class="th"></div>
+        <ul class="btn_frame">
+            <li><a class="on"></a></li>
+            <li><a class=""></a></li>
+        </ul>
+    </div>
+    <div class="content" id="page3">
+        <ul class="con_lst">
+            <li class="it1"></li>
+            <li class="it2">
+                <h3 class="sub_tit">Enriching Your Tomorrow</h3>
+                <p class="sub_com">더 <strong> 멀리 </strong> 더<strong> 길게 </strong>바라보며 <br>
+                자산운용의 正道를 지켜온 한화자산운용</p>
+                <p class="sub_com2">한화자산운용이 고객의 <strong> 풍요로운 내일</strong>을 만들어갑니다.</p>
+                <a href="" class="read">READ MORE</a>
+            </li>
+            <li class="it3">
+                <a href="">
+                <div class="line"></div>
+                <div class="bg">
+                <h1 class="ban_tit">Vision</h1>
+                <p class="ban_com">한화자산운용은 국내를 넘어 ‘아시아 최고의 자산운용사’를 목표로 합니다.</p>
+            </div></a>
+            </li>
+            <li class="it4">
+                    <a href="">
+                <div class="line"></div>
+                        <div class="bg">
+                <h1 class="ban_tit">Mission</h1>
+                <p class="ban_com">언제나 고객을 가장 먼저 생각합니다. <br>
+                        단기적인 이익에 흔들림 없이 투자원칙과 소신을 철저히 지킵니다.</p>
+                    
+            
+            </div>
+        </a>
+        </li>
+        </ul>
+    </div>
+    <div class="content" id="page4">
+        <div class="bg2">
+        <h1 class="tit">한화자산운용의 글로벌 인재상을 소개합니다.</h1>
+        <a href="" class="more">READ MORE</a></div>
+    </div>
+    <footer class="ft">
+        <div class="ft_wrap">
+        <ul class="fnb">
+            <li><a href="">스튜어드십코드</a></li>
+            <li><a href="">개인정보처리방침</a></li>
+            <li><a href="">신용정보활용체제</a></li>
+            <li><a href="">윤리경영</a></li>
+            <li><a href="">이메일무단수집거부</a></li>
+            <li><a href="">법적고시</a></li>
+            <li><a href="">채용정보</a></li>
+        </ul>
+        <a href="#page1" class="top_btn">TOP</a>
+        <div class="fcom">
+                집합투자증권을 취득하시기 전에 투자대상, 보수 수수료 및 환매방법 등에 관하여 (간이)투자설명서를 반드시 읽어보시기 바랍니다. <br>
+                집합투자증권은 운용결과에 따라 투자원금의 손실이 발생할 수 있으며, 그 손실은 투자자에게 귀속됩니다. <br>
+                한화자산운용㈜ 준법감시인 심사필 제18-0751호(2018.07.27-2019.07.26)
+                
+                150-603 서울시 영등포구 63로 50 한화금융센터 50~52층전화 : 02.6950.0000팩스 : 02.6950.0009
+                
+        </div>
+        <div class="copy">COPYRIGHT ⓒ 2018.HANWHA ASSET MANAGEMENT CO.LTD, ALL RIGHTS RESERVED.</div>
+    </div>
+    </footer>
+</body>
+</html>
