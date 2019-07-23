@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,
+     user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <meta name="title" content="KORPI">
+    <meta name="author" content="sangjun">
+    <meta name="keywords" content="극지연구소">
+    <meta name="copyright" content="">
+    <!-- 기본 셋팅시 모바일 메신저로 넘기기 위한 세팅 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="극지연구소">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="극지연구소">
+    <link rel="stylesheet" href="" type="text/css" media="all">
+    <link rel="stylesheet" href="mobile.css" type="text/css" media="screen and (max-width:767px)">
+    <link rel="stylesheet" href="" type="text/css" media="screen and (min-width:768px) and (max-width:959px)">
+    <title>극지연구소</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        $(document).ready(function () {
+            var menu = $(".menu")
+            menu.click(function () {
+                $(".gnb, .gnb2").addClass("on");
+            });
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            width: 100%;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 14px;
+            position: relative;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        input,
+        label,
+        button {
+            outline: none;
+            border: none;
+            background-image: none;
+            background-color: transparent;
+        }
+
+        .hd {
+            width: 100%;
+            height: 100px;
+            background-color: transparent;
+            clear: both;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            z-index: 99;
+        }
+
+        .logo {
+            width: 140px;
+            height: 70px;
+            display: block;
+            position: absolute;
+            top: 2em;
+            left: 2em;
+        }
+
+        .logo img {
+            width: 140px;
+            height: auto;
+        }
+
+        .gnb {
+            float: right;
+            width: 800px;
+            margin-top: 3em;
+            clear: none;
+            margin-right: 3em;
+        }
+
+        .gnb li {
+            float: left;
+            width: 16.6666%;
+        }
+
+        .gnb li a {
+            font-size: 18px;
+            text-align: center;
+            display: block;
+            font-weight: bold;
+            color: #091152;
+            padding: 10px 0;
+        }
+        .gnb li:hover > a{
+            color: #ffffff;
+            background: #091152;
+        }
+        .gnb li:hover .sub{display: block;}
+
+        .gnb2 {
+            float: right;
+            border-bottom: 2px solid #fff;
+            clear: none;
+        }
+
+        .gnb2 li {
+            float: left;
+            position: relative;
+        }
+
+        .gnb2 li a {
+            display: block;
+            font-size: 12px;
+            color: #091152;
+            padding: 1em;
+            transition : 0.3s;
+        }
+
+        .gnb li ul {
+            width: 100%;
+            height: auto;
+            background: #ffffff;
+            display: none;
+            transition: 0.5s;
+        }
+
+        .gnb li ul li {
+            width: 100%;
+        }
+        .sub li:hover a{
+            background: #091152;
+            color: #ffffff;
+        }
+
+        .gnb li ul li a {
+            font-size: 12px;
+            line-height: 3;
+            background: #ffffff;
+            transition: 0.3s;
+        }
+        .gnb2 li:nth-of-type(3):hover .lang{
+            display: block;
+        }
+        .lang {
+            height: auto;
+            background: #ffffff;
+            width: 140%;
+            position: absolute;
+            left: -10px;
+            display: none;
+        }
+
+        .lang li {
+            width: 100%;
+            float: none;
+        }
+        .lang li:hover > a{
+            color: #ffffff;
+            background: #091152;
+        }
+
+        .icon_frame {
+            float: right;
+        }
+
+        .ico {
+            padding: 1em;
+            cursor: pointer;
+        }
+
+        .ico i {
+            font-size: 2em;
+            background: #091152;
+            padding: 6px;
+            border-radius: 50%;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .section {
+            width: 100%;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+
+        #content1 {
+            background-image: url("./img/visual1.jpg");
+        }
+
+        .vs {
+            width: 90%;
+            margin: 0 auto;
+            height: 100%;
+            overflow: hidden;
+            clear: both;
+            position: relative;
+        }
+
+        .vs_con {
+            width: 100%;
+            height: 40vh;
+            position: relative;
+            margin-top: 200px;
+            background: transparent;
+        }
+
+        .vs_lst1 {
+            float: left;
+            width: 31%;
+            height: 100%;
+        }
+
+        .vs_lst2 {
+            float: left;
+            width: 30%;
+            height: 100%;
+            margin-left: 15%;
+            position: relative;
+        }
+
+        .vs_lst3 {
+            float: right;
+            width: 20%;
+            height: 100%;
+            position: relative;
+        }
+
+        .vs_tit {
+            font-size: 2.8em;
+            margin-left: 50px;
+            color: #091152;
+            padding-top: 100px;
+        }
+
+        .frame {
+            width: 50%;
+            float: right;
+            height: 100%;
+            padding-top: 1em;
+        }
+
+        .vs_lst2 a {
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            color: #ffffff;
+            background-image: url("./img/bg1.gif");
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .vs_lst2 img {
+            width: 50%;
+            float: left;
+            margin-top: 20px;
+            padding-left: 10px;
+            box-sizing: border-box;
+        }
+
+        .vs_lst2 h3 {
+            font-size: 1em;
+            font-weight: normal;
+            padding: 10px;
+        }
+
+        .vs_lst2 p {
+            font-size: 1.2em;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .vs_lst3 .btn_frame {
+            width: 100%;
+            height: 10%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .btn_frame li{
+            float: left;
+            width: 30px;
+            height: 100%;
+        }
+        .btn_frame .circle{
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #666;
+        }
+        .btn_frame li.bt3{
+            position: absolute;right: 1em;top: 0;}
+        .btn_frame li button{
+            margin-top: 1em;
+            display: block;
+            margin-left: 1em;
+            cursor: pointer;
+        }
+        .btn_frame .pause{
+            font-size: 16px;
+            color: #666666;
+            font-weight: bold;
+        }
+        .btn_frame .pause i{
+            width: 100%;
+            height: 100%;
+            padding-bottom: 1em;
+            position: absolute;
+            top: 10px;right : 0;
+        }
+
+        .more {
+            width: 100px;
+            height: 30px;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            color: #ffffff;
+            position: absolute;
+            right: 15%;
+            bottom: 20%;
+            cursor: pointer;
+        }
+
+        .lst_slide {
+            width: 100%;
+            height: 60%;
+            float: right;
+        }
+
+        .sl_wrap {
+            width: 200%;
+            height: 100%;
+        }
+
+        .sl_wrap a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .lst_slide li {
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            width: 50%;
+            height: 100%;
+            float: left;
+        }
+
+        .slide1 {
+            background-image: url("./img/popup_img_01.jpg");
+        }
+
+        .slide2 {
+            background-image: url("./img/popup2.jpg");
+        }
+
+        .vs_lst4 {
+            width: 10%;
+            height: 70px;
+            background: #ffffff;
+            clear: both;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        .vs_lst4 a {
+            color: #091152;
+            font-size: 1.2em;
+            display: block;
+            width: 100%;
+            height: 100%;
+            font-weight: bold;
+            text-align: center;
+            line-height: 70px;
+        }
+
+        .vs_lst5 {
+            width: 10%;
+            height: 70px;
+            background: #091152;
+            clear: both;
+            position: absolute;
+            bottom: 0;
+            right: 10%;
+        }
+
+        .vs_lst5 a {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.2em;
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 70px;
+        }
+
+        #content2 {
+            background-image: url("./img/visual2.jpg");
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .con_lst {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            margin-top: 10vh;
+        }
+
+        .con_lst li.item1 {
+            float: left;
+            width: 30%;
+            height: 100%;
+            padding: 3em;
+            box-sizing: border-box;
+        }
+
+        .con_lst li.item2 {
+            width: 60%;
+            height: 100%;
+            float: left;
+            margin-left: 10%;
+            position: relative;
+        }
+
+        .con_slide {
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            right: 0;
+            top: 25%;
+            overflow: hidden;
+        }
+
+        .con_slide li {
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 25%;
+            height: 100%;
+            float: left;
+        }
+
+        .con_slide .it1 {
+            background-image: url("./img/sl1.jpg");
+        }
+
+        .con_slide .it2 {
+            background-image: url("./img/sl2.jpg");
+        }
+
+        .con_slide .it3 {
+            background-image: url("./img/sl3.jpg");
+        }
+
+        .con_slide .it4 {
+            background-image: url("./img/sl4.jpg");
+        }
+
+        .con_slide .it5 {
+            background-image: url("./img/sl5.jpg");
+        }
+
+        .con_slide .it6 {
+            background-image: url("./img/sl6.jpg");
+        }
+
+        .con_slide .it7 {
+            background-image: url("./img/sl7.jpg");
+        }
+
+        .con_slide .it8 {
+            background-image: url("./img/sl8.jpg");
+        }
+
+        .con_tit {
+            font-size: 2.6em;
+            color: #ffffff;
+            padding-top: 20%;
+        }
+
+        .con_tit::after {
+            content: "";
+            width: 1em;
+            height: 5px;
+            background: #091152;
+            display: block;
+        }
+
+        .con_com {
+            font-size: 16px;
+            color: #cccccc;
+            font-weight: bold;
+            padding-top: 10%;
+        }
+
+        .con_slide li a {
+            width: 100%;
+            height: 100%;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: block;
+            text-align: center;
+            padding-top: 50%;
+            box-sizing: border-box;
+            font-weight: bold;
+            transition: 0.4s;
+        }
+
+        .con_slide li a:hover {
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .bgc {
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 100%;
+            height: 100%;
+        }
+
+        #content3 {
+            background-image: url("./img/visual3.jpg");
+        }
+
+
+        .ft {
+            width: 100%;
+            height: 120px;
+            background-color: transparent;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            clear: both;
+            overflow: hidden;
+        }
+
+        .ft_top {
+            width: calc(100% - 100px);
+            height: 30px;
+            margin-left: 200px;
+        }
+
+        .ft_bot {
+            height: auto;
+            width: calc(100% - 100px);
+            margin-left: 200px;
+        }
+
+        .fnb {
+            padding-top: 10px;
+        }
+
+        .fnb li {
+            float: left;
+        }
+
+        .fnb li a {
+            color: #ffffff;
+            display: block;
+            font-size: 12px;
+            padding-right: 50px;
+        }
+
+        .copy {
+            color: #ffffff;
+            margin-top: 10px;
+            font-size: 12px;
+            line-height: 2;
+            padding-top: 15px;
+            border-top: 1px solid #fff;
+        }
+
+        .con {
+            margin-top: 10%;
+            width: 100%;
+            height: 50%;
+        }
+
+        .con .item1 {
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            background-size: cover;
+            width: 33.3333%;
+            height: 100%;
+            background-image: url("./img/popup2.jpg");
+            position: relative;
+        }
+
+        .con .item1 a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .ftlogo {
+            width: 100px;
+            height: 50px;
+            display: block;
+            float: left;
+            margin-top: 2em;
+            margin-left: 3em;
+        }
+
+        .ftlogo img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .sup {
+            width: 100px;
+            height: 60px;
+            display: block;
+            position: absolute;
+            bottom: 0.5em;
+            right: 10%;
+        }
+
+        .sup img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .it_tit {
+            text-align: center;
+            color: #091152;
+            font-size: 1.4em;
+        }
+
+        .it_more {
+            width: 100px;
+            height: 30px;
+            background: #091152;
+            border-radius: 10px;
+            display: block;
+            color: #ffffff;
+            ;
+            font-weight: bold;
+            position: absolute;
+            left: calc(50% - 50px);
+            bottom: 10%;
+            cursor: pointer;
+        }
+
+        .con .item2 {
+            width: 66.6666%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-image: url("./img/con1.jpg");
+        }
+    </style>
+</head>
+
+<body>
+    <header class="hd">
+        <a href="index.html" class="logo"><img src="./img/logo1.png" alt="로고"></a>
+        <div class="icon_frame">
+            <button class="ico"><i class="xi-search"></i></button>
+            <button class="ico menu"><i class="xi-bars"></i></button>
+        </div>
+        <ul class="gnb2">
+            <li><a href="">HOME</a></li>
+            <li><a href="">정보공개</a></li>
+            <li>
+                <a href="" class="kor">KOR</a>
+                <ul class="lang">
+                    <li><a href="">한국어</a></li>
+                    <li><a href="">English</a></li>
+                    <li><a href="">日本語</a></li>
+                    <li><a href="">中國語</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <ul class="gnb">
+            <li>
+                <a href="">KORPI</a>
+                <ul class="sub">
+                    <li><a href="">인사말</a></li>
+                    <li><a href="">연혁</a></li>
+                    <li><a href="">조직도</a></li>
+                    <li><a href="">관련단체 및 조직</a></li>
+                    <li><a href="">찾아오시는길</a></li>
+                    <li><a href="">극지연구소 청사 소개</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">주요인프라</a>
+                <ul class="sub">
+                    <li><a href="">남극세종과학기지</a></li>
+                    <li><a href="">북극다산과학기지</a></li>
+                    <li><a href="">쇄빙연구선 아라온호</a></li>
+                    <li><a href="">남극장보고과학기지</a></li>
+                    <li><a href="">극지路</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">연구</a>
+                <ul class="sub">
+                    <li><a href="">연구분야</a></li>
+                    <li><a href="">시기별 극지연구</a></li>
+                    <li><a href="">KPDC</a></li>
+                    <li><a href="">전자도서관</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">교육</a>
+                <ul class="sub">
+                    <li><a href="">견학신청</a></li>
+                    <li><a href="">북극연구체험단</a></li>
+                    <li><a href="">남극연구체험단</a></li>
+                    <li><a href="">UST</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">KOPRI 마당</a>
+                <ul class="sub">
+                    <li><a href="">공지사항</a></li>
+                    <li><a href="">언론보도</a></li>
+                    <li><a href="">인재채용</a></li>
+                    <li><a href="">전재규 젊은 과학자상</a></li>
+                    <li><a href="">발간물</a></li>
+                    <li><a href="">고객센터</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">정부 3.0</a>
+                <ul class="sub">
+                    <li><a href="">정보공개제도 안내</a></li>
+                    <li><a href="">사전정보공표</a></li>
+                    <li><a href="">연구시설 및 장비 공동활용</a></li>
+                    <li><a href="">사업실명제</a></li>
+                    <li><a href="">입찰공고</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <div class="section" id="content1">
+        <div class="vs">
+            <ul class="vs_con">
+                <li class="vs_lst1">
+                    <h1 class="vs_tit">Korea Polar Research Institute</h1>
+                </li>
+                <li class="vs_lst2">
+                    <a href="">
+                        <img src="./img/king.png" alt="">
+                        <button class="stop_btn"></button>
+                        <div class="frame">
+                            <h3 class="lst_tit">KOREA POLAR RESEARCH INSTITUTE</h3>
+                            <p class="lst_com">눈부신 질적 성장과 혁신으로
+                                극지연구의 새로운 가치를 창출하겠습니다.</p>
+                            <button class="more">자세히 보기</button>
+                        </div>
+                    </a>
+                </li>
+                <li class="vs_lst3">
+                    <ul class="lst_slide">
+                        <div class="sl_wrap">
+                            <li class="slide1"><a href=""></a></li>
+                            <li class="slide2"><a href=""></a></li>
+                        </div>
+                    </ul>
+                    <ul class="btn_frame">
+                        <li class="bt1"><button class="circle"></button></li>
+                        <li class="bt2"><button class="circle"></button></li>
+                        <li class="bt3"><button class="pause"><i class="xi-pause"></i></button></li>
+                    </ul>
+                </li>
+                <li class="vs_lst4">
+                    <a href=""><i class="xi-cog"></i>연구사업</a>
+                </li>
+                <li class="vs_lst5">
+                    <a href=""><i class="xi-paper"></i>언론보도</a>
+                </li>
+            </ul>
+            <ul>아래쪽 라인</ul>
+        </div>
+    </div>
+    <div class="section" id="content2">
+        <div class="bgc">
+            <div class="vs">
+                <ul class="con_lst">
+                    <li class="item1">
+                        <h1 class="con_tit">연구분야</h1>
+                        <p class="con_com">극지연구소는 극지 기반 연구를 위한 3대 전략을 수립해 다양한 연구와
+                            사업을 수행하고 그 성과를 국내외적으로 인정받고 있습니다.</p>
+                    </li>
+                    <li class="item2">
+                        <ul class="con_slide">
+                            <li class="it1"><a href="">극지기후과학</a></li>
+                            <li class="it2"><a href="">극지기후시스템</a></li>
+                            <li class="it3"><a href="">극지생명과학</a></li>
+                            <li class="it4"><a href="">극지해양과학</a></li>
+                            <li class="it5"><a href="">극지고환경</a></li>
+                            <li class="it6"><a href="">해수면변동예측</a></li>
+                            <li class="it7"><a href="">극지유전체</a></li>
+                            <li class="it8"><a href="">K-루트개측</a></li>
+                        </ul>
+                        <ul class="con_btns">
+                            <li><button></button></li>
+                            <li><button></button></li>
+                            <li><button></button></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>아래 라인</ul>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="content3">
+        <div class="bgc">
+            <div class="vs">
+                <ul class="con_lst">
+                    <li class="item1">
+                        <h1 class="con_tit">교육&견학신청</h1>
+                        <p class="con_com">세상의 끝에서 미래를 열어갑니다.</p>
+                    </li>
+                    <li class="item2">
+                        <ul class="con">
+                            <li class="item1"><a href="">
+                                    <h3 class="it_tit">연구소견학프로그램</h3>
+                                    <button class="it_more">더보기</button>
+                                </a></li>
+                            <li class="item2">달력</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer class="ft">
+        <a href="" class="ftlogo"><img src="./img/logo2.png" alt="푸터로고"></a>
+        <div class="ft_top">
+            <ul class="fnb">
+                <li><a href="">직원검색</a></li>
+                <li><a href="">사이트맵</a></li>
+                <li><a href="">이메일집단수집거부</a></li>
+                <li><a href=""><strong>개인정보취급방침</strong></a></li>
+            </ul>
+        </div>
+        <div class="ft_bot">
+            <div class="copy">우) 21990 인천광역시 연수구 송도미래로 26(송도동 213-3) Tel: 032)770-8400 Fax: 032)770-8709 <br> COPYRIGHT
+                (C) KOREA POLAR RESEARCH INSTITUTE ALL RIGHT RESERVED</div>
+            <a href="" class="sup"><img src="./img/wa_mark.png" alt=""></a>
+        </div>
+    </footer>
+</body>
+
+</html>

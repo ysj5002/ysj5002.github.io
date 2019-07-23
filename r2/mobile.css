@@ -1,0 +1,21 @@
+@charset "utf-8";
+.hd{position: fixed;top: auto;left: auto;height: 70px;background: #fff;}
+.logo{width: 80px;left: 1em;top: 1em;}
+.logo img{width: 80px;height: auto;}
+.gnb{width: 70%;background: #091152;float: none;height: 100%;
+position: fixed;right: -110%;top: 100px;margin-top: 0;
+margin-right: 0;transition: 0.5s;}
+.gnb li{float: none;width: 100%;clear: both;}
+.gnb li a{font-size: 16px;text-align: center;padding: 10px;
+    color: #ffffff;}
+.icon_frame{float: right;margin-top: 10px;}
+.icon_frame button{margin: 10px;}
+.icon_frame i{font-size: 1.4em;}
+.gnb2{float: none;width: 70%;height: 30px;background: #091152;
+position: fixed;top: 70px;right: -110%;border-bottom: 1px solid #ccc;
+z-index: 10;transition: 0.5s;}
+.gnb2 li{width: 33.3333%;font-size: 14px;font-weight: bold;}
+.gnb2 li a{color: #ffffff;text-align: center;display: block;
+padding: 0;line-height: 30px;}
+.gnb.on{right: 0;padding-top: 0;padding-right: 0;}
+.gnb2.on{right: 0;}
