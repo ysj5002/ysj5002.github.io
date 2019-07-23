@@ -1,0 +1,37 @@
+
+	반응형 제4 과제
+
+		- 소재 : 미디어/통신/가상현실/소프트웨어 (공기업은 제외)
+		- 주제 : 본인이 자율적으로 해당 소재를 채택하여 주제를 선정한다.
+
+		샘플 사이트 : https://play.kia.com/main.do (플레이 기아)
+
+		해당 샘플 사이트와 같이 본인이 선택한 주제의 사이트를 반응혀응로 리디자인 또는 제작하시오.
+		(다만, 구현기술은 네거티브 마진 방법을 주로 사용해야 한다.)
+
+		필히 본인이 선택한 주제의 사이트를 위한 텍스트, 이미지, 동영상, 사운드 데이터를 준비해주세요.
+		(시안, 색, 아이콘, ... 등도 같이 준비할 것)
+
+
+	#container>#aside+#content
+
+	/* 컨테이너 영역의 단 설정 */
+	#container { zoom:1; padding-right:200px;}
+	
+	/* #container에 절대 폭 지정안함 */
+	#container:after{content:""; display:block; clear:both;}
+	#content { float:left; width:100%; margin-right:-200px;}
+
+	/* 왼쪽 박스에 폭을 100%로 하고, 오른쪽 마진을 -(음수값)으로 원하는 만큼 설정 */
+	#aside {float:right; position:relative; width:170px; left:190px;}
+	/* #aside가 오른쪽 박스일 경우 float이 right이고, position는 relative로, 오른쪽 밖으로 빼고 싶은 만큼의 양을 left로 위치값을 준다*/
+	또는 #aside {position:fixed; width:170px; left:0px; top:0; z-index:99;}
+	/* #aside가 왼쪽 박스일 경우는 position을 fixed로 처리*/
+	
+
+	@media screen and (max-width:767px){
+		#container{padding-right:0}
+		#content { margin-right:0;}
+		#aside {width:100%;}
+
+

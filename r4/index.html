@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LG U+</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <style>
+    *{margin: 0;padding: 0;}
+    body,html{width: 100%;font-size: 14px;font-family: 'Noto Sans KR', sans-serif;-ms-overflow-style: hidden;
+    }
+    ::-webkit-scrollbar{display: none;}
+    ul{list-style: none;}
+    a{text-decoration: none;color: #333333;}
+    input,label,button{outline: 0;border: 0;background-image: none;background-color: transparent;}
+    #container{zoom: 1;padding-right: 200px;height: 100vh;overflow: hidden;}
+    #container::after{content: "";display: block;clear: both;}
+    #hd{width: 200px;clear: both;float: left;position: fixed;}
+    #content{float: left;width: 100%;margin-left: 200px;position: relative;}
+    #aside{position: fixed;width: 90px;right: 4em;top: 9em;z-index: 99;height: 630px;border-radius: 25px;
+    background: #fff;border: 1px solid #ccc;}
+    .logo{display: block;width: 140px;height: 40px;padding: 30px;margin-top: 50px;}
+    .gnb{width: 140px;margin: 20px auto;}
+    .gnb li{width: 100%;line-height: 4.6;}
+    .gnb li a{display: block;text-align: center;font-size: 18px;font-weight: bold;transition: 0.2s;}
+    .gnb li a:hover{color: #ea0087}
+    .search{border: 1px solid #333;width: 162px;height: 32px;box-sizing: border-box;margin: 0 auto;}
+    #sr_frame{width: 130px;line-height: 30px;text-indent: 1em;font-size: 11px;float: left;}
+    .sricon{display: block;width: 30px;height: 30px;float: right;color: #ffffff;font-size: 20px;
+    background: #666666;text-align: center;}
+    .snb{width: 90px;height: 630px;border-radius: 50px;}
+    .snb li{width: 90px;height: 90px;background-repeat: no-repeat;
+    background-size: -1px;background-image: url("./icon.png");}
+    .snb li.it1{background-position: 27px 15px;}
+    .snb li.it2{background-position: -70px 15px;}
+    .snb li.it3{background-position: -173px 15px;}
+    .snb li.it4{background-position: -270px 15px;}
+    .snb li.it5{background-position: -372px 15px;}
+    .snb li.it6{background-position: 27px -85px ;}
+    .snb li.it7{background-position: -72px -85px;}
+    .snb li.it1:hover{background-position: 27px -185px;}
+    .snb li.it2:hover{background-position: -70px -185px;}
+    .snb li.it3:hover{background-position: -173px -185px;}
+    .snb li.it4:hover{background-position: -270px -185px;}
+    .snb li.it5:hover{background-position: -372px -185px;}
+    .snb li.it6:hover{background-position: 27px -285px;}
+    .snb li.it7:hover{background-position: -72px -285px;}
+    .snb li a{display: block;width: 90px;height: 90px;font-weight: bold;text-align: center;font-size: 11px;
+    line-height: 140px;transition: 0.2s;}
+    .snb li a:hover{color: #ea0087;}
+    .imgbox{width: 100%;height: 70vh;margin-top: -60vh;}
+    .imgbox li{background-repeat: no-repeat;background-size: 100% 100%;background-position: center center;
+    width: 100%;height: 100%;}
+    .imgbox li.on{margin-bottom: 70vh;}
+    .imgbox li.it1{background-image: url("./slide1.jpg");}
+    .imgbox li.it2{background-image: url("./slide2.jpg");}
+    .imgbox li.it3{background-image: url("./slide3.jpg");}
+    .imgbox li.it4{background-image: url("./slide4.jpg");}
+    .imgbox li a{display: block;width: 100%;height: 100%;}
+    .btn_box{width: 16px;position: fixed;left: 220px;top: calc(50% - 50px);height: 100px;}
+    .btn_box li{width: 12px;height: 12px;border-radius: 50px;background: #cccccc;margin: 0 auto;
+    margin-bottom: 17px;cursor: pointer;transition: 0.3s;}
+    .btn_box li.on{height: 24px;background: #ea0087;}
+    #ft{height: 10vh;width: 100%;background: #ffffff;z-index: 999;clear: both;position: absolute;bottom: 0;left: 0;
+    border-top: 1px solid #ccc;}
+    .fnb{float: left;}
+    .fnb li{float: left;}
+    .fnb li a{display: block;font-size: 12px;padding: 10px;text-indent: 1em;}
+    .fnb li a::after{content: "|";margin-left: 2.4em;}
+    .family{float: right;width: 150px;height: 30px;position: relative;margin-right:2em;margin-top: 20px;}
+    .family > a{display: block;position: relative;padding: 7px 15px;border: 1px solid #ccc;
+    font-size: 11px;color: #333333;box-sizing: border-box;}
+    .family > a::after{content: "△";float: right;color: #333333;}
+    .fm_lst{position: absolute;bottom: 30px;left: 0;background: #ffffff;width: 150px;display: none;}
+    .fm_lst li{width: 100%;line-height: 2;border: 1px solid #ccc;box-sizing: border-box;position: relative;}
+    .fm_lst li a{display: block;font-size: 12px;height: 30px;}
+    .fm_lst li a::after{content: "▷";position: absolute;right: 0;font-size: 9px;line-height: 30px;}
+    .copy{clear: both;text-indent: 2em;color: #666666;font-size: 13px;text-align: center;}
+    .snsbox{width: 284px;height: 32px;float: right;position: relative;margin-top: 20px;}
+    .snsbox li{background-repeat: no-repeat;background-size: 64px;background-image: url("./sns.png");
+    height: 32px;width: 32px;float: left;margin-right: 8px;}
+    .snsbox li.sns1{background-position: 1px  3px;}
+    .snsbox li.sns2{background-position: 1px -30px;}
+    .snsbox li.sns3{background-position: 1px -62.5px;}
+    .snsbox li.sns4{background-position: 1px -95px;}
+    .snsbox li.sns5{background-position: 1px -127px;}
+    .snsbox li.sns6{background-position: 1px -160px;}
+    .snsbox li.sns7{background-position: 1px -194px;}
+    .snsbox li.sns1:hover{background-position: -38px 3px;}
+    .snsbox li.sns2:hover{background-position: -38px -30px;}
+    .snsbox li.sns3:hover{background-position: -38px -62.5px;}
+    .snsbox li.sns4:hover{background-position: -38px -95px;}
+    .snsbox li.sns5:hover{background-position: -38px -127px;}
+    .snsbox li.sns6:hover{background-position: -38px -160px;}
+    .snsbox li.sns7:hover{background-position: -38px -194px;}
+    .snsbox li a{display: block;width: 100%;height: 100%;}
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+    $(document).ready(function(){
+        var intv = setInterval(function(){slide()},3000);
+        // $(".imgbox li").eq(0).appendTo($(".imgbox li"));
+        var wh = $("#container").height();
+        var idx = $(".imgbox li").index();
+        function slide(){$(".imgbox").animate({"margin-top": "-130vh"},800,function(){
+            $(".imgbox li").eq(0).appendTo(".imgbox");
+        });
+        }
+    });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <header id="hd">
+            <a href="" class="logo"><img src="logo.png" alt="로고"></a>
+            <ul class="gnb">
+                <li><a href="">U+Shop</a></li>
+                <li><a href="">상품 서비스</a></li>
+                <li><a href="">내 정보관리</a></li>
+                <li><a href="">고객지원</a></li>
+                <li><a href="">혜택보기</a></li>
+            </ul>
+            <div class="search">
+                <input type="text" value="" placeholder="검색어를 입력해주세요" id="sr_frame">
+                <a href="#" class="sricon"><i class="xi-search"></i>
+                </a>
+            </div>
+        </header>
+        <div id="content">
+            <ul class="imgbox">
+                <li class="it1"><a href=""></a></li>
+                <li class="it2"><a href=""></a></li>
+                <li class="it3"><a href=""></a></li>
+                <li class="it4"><a href=""></a></li>
+            </ul>
+            <ul class="btn_box">
+                <li class="btn1 on"></li>
+                <li class="btn2"></li>
+                <li class="btn3"></li>
+                <li class="btn4"></li>
+            </ul>
+        </div>
+        <aside id="aside">
+            <ul class="snb">
+                <li class="it1"><a href="">요금/사용량조회</a></li>
+                <li class="it2"><a href="">가입정보변경</a></li>
+                <li class="it3"><a href="">요금납부관리</a></li>
+                <li class="it4"><a href="">휴대폰소액결제</a></li>
+                <li class="it5"><a href="">멤버십사용</a></li>
+                <li class="it6"><a href="">파손도움서비스</a></li>
+                <li class="it7"><a href="">이벤트</a></li>
+            </ul>
+        </aside>
+    </div>
+    <footer id="ft">
+        <ul class="fnb">
+            <li><a href="">이용약관</a></li>
+            <li><a href="">개인정보처리방침</a></li>
+            <li><a href="">개인정보이용내역</a></li>
+            <li><a href="">청소년보호정책</a></li>
+            <li><a href="">이메일주소무단수집거부</a></li>
+            <li><a href="">이용자피해예방가이드</a></li>
+            <li><a href="">미환급금조회</a></li>
+            <li><a href="">명의도용방지서비스</a></li>
+        </ul>
+        <div class="family">
+            <a href="">바로가기</a>
+            <ul class="fm_lst">
+                <li><a href="">회사소개</a></li>
+                <li><a href="">LG계열사</a></li>
+                <li><a href="">연체정보조회</a></li>
+                <li><a href="">개인정보보호자율감시센터</a></li>
+                <li><a href="">휴대폰 대출사기주의</a></li>
+                <li><a href="">구매협업</a></li>
+                <li><a href="">협력회사상생고</a></li>
+                <li><a href="">최신보안정보</a></li>
+                <li><a href="">통화량급중예상일</a></li>
+                <li><a href="">선불폰</a></li>
+            </ul>
+        </div>
+        <ul class="snsbox">
+            <li class="sns1"><a href=""></a></li>
+            <li class="sns2"><a href=""></a></li>
+            <li class="sns3"><a href=""></a></li>
+            <li class="sns4"><a href=""></a></li>
+            <li class="sns5"><a href=""></a></li>
+            <li class="sns6"><a href=""></a></li>
+            <li class="sns7"><a href=""></a></li>
+        </ul>
+                <div class="copy">
+                        Copyright © LG Uplus Corp. All Rights Reserved.
+                </div>
+    </footer>
+</body>
+</html>
