@@ -1,0 +1,59 @@
+
+	반응형 제3 과제
+
+		- 소재 : 의료/병원/보건 (관공서나 공기업은 제외)
+		- 주제 : 본인이 자율적으로 해당 소재를 채택하여 주제를 선정한다.
+
+		샘플 사이트 : https://seoul-agi.seoul.go.kr/smom (서울특별시 임신출산 정보센터)
+
+		해당 샘플 사이트와 같이 본인이 선택한 주제의 사이트를 반응형으로 리디자인 또는 제작하시오.
+
+		필히 본인이 선택한 주제의 사이트를 위한 텍스트, 이미지, 동영상, 사운드 데이터를 준비해주세요.
+		(시안, 색, 아이콘)
+
+아주대학교병원
+
+$(document).ready(function(){
+	$(window).resize(function(){
+	var wd = $(window).width();
+	if(wd<=767){
+		$("#tstyle").remove();
+		$("#dstyle").remove();
+		$("head").append("<link rel='stylesheet' href='mobile.css' id='mstyle'>")
+	}else if(wd>=768 && wd<=959){
+		$("#mstyle").remove();
+		$("#dstyle").remove();
+		$("head").append("<link rel='stylesheet' href='tablet.css' id='tstyle'>")
+	}else{
+		$("#mstyle").remove();
+		$("#tstyle").remove();
+		$("head").append("<link rel='stylesheet' href='desktop.css' id='dstyle'>")
+   }
+  }).resize();
+});
+
+
+
+
+
+$(document).ready(function(){
+	$(window).resize(function(){
+	if(window.matchMedia<"screen and (max-width:767px)").matches){
+		$("#tstyle").remove();
+		$("#dstyle").remove();
+		$("head").append("<link rel='stylesheet' href='mobile.css' id='mstyle'>")
+	}else if(window.matchMedia("screen and (min-width:768px) and (max-width:959px)").matches){
+		$("#mstyle").remove();
+		$("#dstyle").remove();
+		$("head").append("<link rel='stylesheet' href='tablet.css' id='tstyle'>")
+	}else{
+		$("#mstyle").remove();
+		$("#tstyle").remove();
+		$("head").append("<link rel='stylesheet' href='desktop.css' id='dstyle'>")
+   }
+  }).resize();
+});
+
+
+
+

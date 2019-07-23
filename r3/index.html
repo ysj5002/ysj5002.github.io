@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>아주대학교 병원</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style>
+            *{margin: 0;padding: 0;}
+            body,html{width: 100%;font-size: 14px;font-family: 'Nanum Gothic', sans-serif;}
+            ul{list-style: none;}
+            a{text-decoration: none;color: #333333;}
+            input,button,label{outline: 0;border: 0;background-image: none;background-color: transparent;}
+            #wrap{width: 100%;height: 100%;}
+            .hd{width: 70%;height: 100px;background: #ffffff;position: relative;margin: 0 auto;}
+            .hd_top{width: 100%;height: 100px;position: relative;}
+            .tnb{float: left;padding-top: 40px;}
+            .tnb > li{float: left;margin-right: 30px;}
+            .tnb > li a{display: block;color: #666666;padding: 2px;}
+            .tnb > li:first-of-type{border: 1px solid #333;}
+            .logo{width: 161px;height: 60px;position: absolute;left: calc(50% - 80px);top: 20px;}
+            .lang{clear: both;display: none;}
+            .lang li{float: none;}
+            .lang li a{display: block;padding-top: 10px;text-align: center;}
+            .hd_bot{width: 100%;height: 50px;clear: both;border-bottom: 1px solid #ccc;border-top: 1px solid #ccc;}
+            .gnb{width: 70%;margin: 0 auto;float: none;height: 50px;}
+            .gnb > li{float: left;width: 14.2%;}
+            .gnb > li > a{text-align: center;display: block;font-size: 1.2em;font-weight: bold;line-height: 50px;
+            border-left: 1px solid #ccc;width: 100%;}
+            .gnb > li:nth-of-type(7){border-right: 1px solid #ccc;}
+            .gnb>li>a:hover{background: #eee;}
+            .gnb li:hover .sub{opacity: 1;height: 300px;visibility: visible;}
+            .sub{position: absolute;background: #ffffff;width: 10%;border: 1px solid #ccc;box-sizing: border-box;
+            transition: 0.4s;opacity: 0;height: 0;visibility: hidden;z-index: 99;}
+            .sub > li{width: 100%;}
+            .sub > li > a{text-align: center;display: block;font-weight: bold;line-height: 2.4;}
+            .vs{width: 100%;overflow: hidden;position: relative;}
+            .sub li:hover{background: #ddd;}
+            .imgbox{width: 200%;}
+            .imgbox li{background-repeat: no-repeat;background-size: cover;background-position: center center;
+            width: 50%;float: left;height: 50vh;}
+            .imgbox .it1{background-image: url("./img/visual1.jpg");}
+            .imgbox .it2{background-image: url("./img/visual2.gif");}
+            .imgbox li a{display: block;width: 100%;height: 100%;}
+            .quickmenu{width: 100%;height: 170px;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;}
+            .quick_frame{width: 70%;height: 170px;margin: 0 auto;}
+            .quick_frame li{width: 25%;height: 170px;background-repeat: no-repeat;
+            background-size: contain;background-position: center center;float: left;}
+            .quick_frame li.it1{background-image: url("./img/quick1.jpg");}
+            .quick_frame li.it2{background-image: url("./img/quick2.jpg");}
+            .quick_frame li.it3{background-image: url("./img/quick3.jpg");}
+            .quick_frame li.it4{background-image: url("./img/quick4.jpg");}
+            .quick_frame li a{display: block;width: 100%;height: 100%;border-left: 1px solid #ccc;
+            box-sizing: border-box;}
+            .quick_frame li:last-child{border-right: 1px solid #ccc;box-sizing: border-box;}
+            .notice{width: 100%;height: 100vh;clear: both;}
+            .not_frame{width: 100%;height: 100%;clear: both;}
+            .not_frame > li{width: 50%;height: 100%;float: left;}
+            .not_it1{background-color: rgb(189, 222, 251);}
+            .not_it2{background-color: beige;}
+            .not_tit{font-size: 2.2em;text-align: center;padding-top: 50px;}
+            .more{width: 40px;height: 40px;display: block;float: right;border : 2px solid #ccc;position: relative;
+            font-size: 2em;color: #cccccc;cursor: pointer;margin-right: 2em;clear: both;}
+            .not_sec{width: 100%;clear: both;height: 70%;}
+            .not_sec li{width: 70%;margin: 0 auto;background: #ffffff;height: 19%;margin-bottom: 1%;}
+            .not_top{width: 100%;height: 30px;padding: 15px;box-sizing: border-box;}
+            .not_tag{background: rgb(56, 56, 168);width: 80px;line-height: 20px;text-align: center;float: left;
+                color: #ffffff;border-radius: 20px;}
+            .date{float: right;line-height: 20px;font-weight: 600;}
+            .not_bot{width: 100%;padding: 20px;box-sizing: border-box;}
+            .not_more{width: 70px;line-height: 40px;background: rgb(211, 75, 75);color: #ffffff;
+            text-align: center;float: right;}
+            .b_quick{width: 100%;height: 500px;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;}
+            .bq_frame{width: 70%;height: 100%;margin: 0 auto;}
+            .bq_frame > li{width: 33.3333%;height: 100%;border-left: 1px solid #ccc;float: left;box-sizing: border-box;}
+            .bq_frame > li:last-child{border-right: 1px solid #ccc;}
+            .bq_tit{text-align: center;line-height: 3;font-size: 1.6em;}
+            .bq_con{width: 100%;height: 100%;}
+            .bqs1{width: 70%;margin: 0 auto;height: 100%;margin-top: 50px;}
+            .bqs1 > li{background-repeat: no-repeat;background-size: cover;background-position: center center;
+            width: 50%;height: 25%;float: left;transition: 0.5s;}
+            .bqs1 > li:hover{background-size: 110%;}
+            .bqs1 li.it1{background-image: url("./img/bqs1_1.jpg");}
+            .bqs1 li.it2{background-image: url("./img/bqs1_2.jpg");}
+            .bqs1 li.it3{background-image: url("./img/bqs1_3.jpg");}
+            .bqs1 li.it4{background-image: url("./img/bqs1_4.jpg");}
+            .bq_con a{display: block;width: 100%;height: 100%;}
+            .bqs2{width: 90%;height: 100%;margin: 0 auto;margin-top: 50px;}
+            .bqs2 li{background-repeat: no-repeat;background-size: 100%;background-position: center center;
+            width: 47%;height: 50%;float: left;transition: 0.3s;box-sizing: border-box;}
+            .bqs2 li.it1{background-image: url("./img/bqs2_1.jpg");}
+            .bqs2 li.it2{background-image: url("./img/bqs2_2.jpg");margin-left: 6%;}
+            .bqs2 li.it1:hover{border: 1px solid rgb(79, 179, 79);}
+            .bqs2 li.it2:hover{border: 1px solid rgb(61, 61, 172);}
+            .slide{width: 90%;height: 80%;margin: 0 auto;overflow: hidden;clear: both;position: relative;}
+            .bqs3{width: 300%;margin: 0 auto;height: 100%;margin-top: 50px;}
+            .bqs3 li{float: left;width: 33.3333%;float: left;background-repeat: no-repeat;background-size: 100%;
+            background-position: center top;height: 500px;}
+            .bqs3 li.it1{background-image: url("./img/bqs3_1.jpg");}
+            .bqs3 li.it2{background-image: url("./img/bqs3_2.jpg");}
+            .bqs3 li.it3{background-image: url("./img/bqs3_3.jpg");}
+            .btn_frame{width: 100px;height: 40px;position: absolute;left: calc(50% - 50px);bottom: 0;z-index: 99;}
+            .btn_frame li{width: 33.3333%;height: 40px;float: left;}
+            .btn_frame button{width: 12px;height: 12px;background: #cccccc;display: block;border-radius: 50px;
+            margin: 0 auto;cursor: pointer;}
+            .btn_frame button.on{background: #333333;}
+            .ft{width: 100%;height: 200px;clear: both;}
+            .ft_top{width: 100%;height: 70px;background-color: rgb(22, 37, 126);}
+            .fnb{width: 600px;margin: 0 auto;}
+            .fnb li{float: left;width: 25%;}
+            .fnb li a{color: #ffffff;text-align: center;display: block;line-height: 70px;font-weight: bold;
+            font-size: 12px;}
+            .ft_bot{width: 100%;height: 130px;background: rgb(6, 12, 46);}
+            .copy{color: #fff;line-height: 3;text-align: center;padding-top: 20px;}
+            .vs_txt{width: 50%;height: 100%;position: absolute;left: 25%;text-align: center;top: 25%;}
+            .vs_tit{font-size: 3em;color: #1a44b6;}
+            .vs_stit{font-size: 1.6em;color: rgb(2, 2, 37);}
+            .vs_com{font-size: 2.2em;color: #ffffff;font-weight: bold;text-shadow: 1px 1px #000;}
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+    $(function(){
+   start();
+    var imgs=1;
+    var now=0;
+    
+    function start(){
+        $(".imgbox li").eq(0).siblings().fadeIn({"margin-left":"-1200px"});
+        setInterval(function(){slide();},4000);
+    };
+    function slide(){
+        now=now==imgs?0:now+=1;
+        $(".imgbox li").eq(now-1).fadeOut({"margin-left":"-1200px"});
+        $(".imgbox li").eq(now).fadeIn({"margin-left":"0px"});
+    };
+    var wd = parseInt($(".slide").width());
+    $(".btn_frame li").click(function(){
+        var idx = $(this).index();
+        $(".bqs3").not(":animated").animate({"margin-left" : wd*idx*-1+"px"},200);
+        $(".btn_frame button").removeClass("on");
+        $(this).children().addClass("on");
+    });
+    $(".tnb > li:first-of-type").click(function(){
+
+    });
+});
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <header class="hd">
+            <div class="hd_top">
+                <ul class="tnb">
+                    <li><a href="#">LANGUAGE</a>
+                        <ul class="lang">
+                            <li><a href="#">ENGLISH</a></li>
+                            <li><a href="#">CHINESE</a></li>
+                            <li><a href="#">RUSSIAN</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">검색</a></li>
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                </ul>
+                <a href="#" class="logo"><img src="./img/logo.jpg" alt="로고"></a>
+            </div>
+            
+        </header>
+        <div class="hd_bot">
+                <ul class="gnb">
+                    <li><a href="#">진료 안내</a>
+                        <ul class="sub it1">
+                            <li><a href="#">진료 시간표</a></li>
+                            <li><a href="#">외래 진료</a></li>
+                            <li><a href="#">응급 진료</a></li>
+                            <li><a href="#">입원 진료</a></li>
+                            <li><a href="#">건강 보험</a></li>
+                            <li><a href="#">가정 간호</a></li>
+                            <li><a href="#">호스피스 완화의료</a></li>
+                            <li><a href="#">사회 사업</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">병원이용안내</a>
+                        <ul class="sub it2">
+                            <li class=""><a href="#">찾아오시는 길</a></li>
+                            <li class=""><a href="#">주차 안내</a></li>
+                            <li class=""><a href="#">주요 전화번호</a></li>
+                            <li class=""><a href="#">층별 위치안내</a></li>
+                            <li class=""><a href="#">병원시설 안내</a></li>
+                            <li class=""><a href="#">자원봉사</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">진료과·의료진</a>
+                        <ul class="sub it3">
+                            <li><a href="#">의료진 찾기</a></li>
+                            <li><a href="#">전문센터</a></li>
+                            <li><a href="#">진료과</a></li>
+                            <li><a href="#">암센터</a></li>
+                            <li><a href="#">치과병원</a></li>
+                            <li><a href="#">전문클리닉</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">예약·조회·발급</a>
+                        <ul class="sub it4">
+                            <li><a href="#">예약</a></li>
+                            <li><a href="#">조회</a></li>
+                            <li><a href="#">발급</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">고객 서비스</a>
+                        <ul class="sub it5">
+                            <li><a href="#">자주하는 질문</a></li>
+                            <li><a href="#">복약 상담</a></li>
+                            <li><a href="#">칭찬합니다</a></li>
+                            <li><a href="#">고객의 소리</a></li>
+                            <li><a href="#">신생아 탄생축하</a></li>
+                            <li><a href="#">서식 다운로드</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">건강정보</a>
+                        <ul class="sub it6">
+                            <li><a href="#">건강 칼럼</a></li>
+                            <li><a href="#">건강 강좌/학술 행사</a></li>
+                            <li><a href="#">질병 정보</a></li>
+                            <li><a href="#">검사 정보</a></li>
+                            <li><a href="#">첨단 장비</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">병원소개</a>
+                        <ul class="sub it7">
+                            <li><a href="#">병원장 인사말</a></li>
+                            <li><a href="#">역대 병원장</a></li>
+                            <li><a href="#">조직도</a></li>
+                            <li><a href="#">임상성과</a></li>
+                            <li><a href="#">병원소식</a></li>
+                            <li><a href="#">언론보도</a></li>
+                            <li><a href="#">채용</a></li>
+                            <li><a href="#">입찰공고</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        <div class="section vs">
+                <div class="vs_txt">
+                <h1 class="vs_tit">아주대학교 병원</h1>
+                <h3 class="vs_stit">Ajou University Hospital</h3>
+                <p class="vs_com">"우리는 항상 당신 곁에 있으며,<br> 당신의 아픔을 치유하기 위하여 끊임없이 헌신합니다"</p>
+            </div>
+            <ul class="imgbox">
+                <li class="it1"><a href="#"></a></li>
+                <li class="it2"><a href="#"></a></li>
+            </ul>
+        </div>
+        <div class="quickmenu">
+            <ul class="quick_frame">
+                <li class="it1"><a href="#"></a></li>
+                <li class="it2"><a href="#"></a></li>
+                <li class="it3"><a href="#"></a></li>
+                <li class="it4"><a href="#"></a></li>
+            </ul>
+        </div>
+        <div class="notice">
+            <ul class="not_frame">
+                <li class="not_it1">
+                    <h2 class="not_tit">건강칼럼</h2>
+                    <button class="more">+</button>
+                    <ul class="not_sec">
+                        <li><a href="#">
+                                <div class="not_bot">
+                                    <h3 class="not_com">전미선 교수의 통합의학 이야기 ⑤ 침술치료</h3>
+                                    <div class="not_more">상세보기</div>
+                                </div>
+                            </a></li>
+                        <li><a href="#">
+                                <div class="not_bot">
+                                    <h3 class="not_com">전미선 교수의 통합의학 이야기 ④ 재활치료 & 운동치료</h3>
+                                    <div class="not_more">상세보기</div>
+                                </div>
+                            </a></li>
+                        <li><a href="#">
+                                <div class="not_bot">
+                                    <h3 class="not_com">전미선 교수의 통합의학 이야기 ③ 내 몸의 긴장을 푸는 이완요법</h3>
+                                    <div class="not_more">상세보기</div>
+                                </div>
+                            </a></li>
+                        <li><a href="#">
+                                <div class="not_bot">
+                                    <h3 class="not_com">[Ajou toon] 새해에는 건강부터 챙기자! 내 몸에 대한 예의, 건강검진</h3>
+                                    <div class="not_more">상세보기</div>
+                                </div>
+                            </a></li>
+                        <li><a href="#">
+                                <div class="not_bot">
+                                    <h3 class="not_com">전미선 교수의 통합의학 이야기 ② 마음이 편해지는 명상</h3>
+                                    <div class="not_more">상세보기</div>
+                                </div>
+                            </a></li>
+                    </ul>
+                </li>
+                <li class="not_it2">
+                    <h2 class="not_tit">건강 강좌 · 학술 행사</h2>
+                    <button class="more">+
+                    </button>
+                    <ul class="not_sec">
+                            <li><a href="#">
+                                    <div class="not_top">
+                                        <h4 class="not_tag">건강강좌</h4>
+                                        <span class="date">2019-07-23</span>
+                                    </div>
+                                    <div class="not_bot">
+                                        <h3 class="not_com">7월 당뇨교실</h3>
+                                        <div class="not_more">상세보기</div>
+                                    </div>
+                                </a></li>
+                            <li><a href="#">
+                                    <div class="not_top">
+                                        <h4 class="not_tag">건강강좌</h4>
+                                        <span class="date">2019-07-23</span>
+                                    </div>
+                                    <div class="not_bot">
+                                        <h3 class="not_com">암교육강좌-불면증 다루기</h3>
+                                        <div class="not_more">상세보기</div>
+                                    </div>
+                                </a></li>
+                            <li><a href="#">
+                                    <div class="not_top">
+                                        <h4 class="not_tag">건강강좌</h4>
+                                        <span class="date">2019-07-16</span>
+                                    </div>
+                                    <div class="not_bot">
+                                        <h3 class="not_com">암교육강좌-간암 예방과 최신 치료</h3>
+                                        <div class="not_more">상세보기</div>
+                                    </div>
+                                </a></li>
+                            <li><a href="#">
+                                    <div class="not_top">
+                                        <h4 class="not_tag">건강강좌</h4>
+                                        <span class="date">2019-07-16</span>
+                                    </div>
+                                    <div class="not_bot">
+                                        <h3 class="not_com">7월 당뇨교실</h3>
+                                        <div class="not_more">상세보기</div>
+                                    </div>
+                                </a></li>
+                            <li><a href="#">
+                                    <div class="not_top">
+                                        <h4 class="not_tag">건강강좌</h4>
+                                        <span class="date">2019-07-12</span>
+                                    </div>
+                                    <div class="not_bot">
+                                        <h3 class="not_com">출산준비교실</h3>
+                                        <div class="not_more">상세보기</div>
+                                    </div>
+                                </a></li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="b_quick">
+            <ul class="bq_frame">
+                <li class="it1">
+                    <h3 class="bq_tit">암센터</h3>
+                    <div class="bq_con">
+                        <ul class="bqs1">
+                            <li class="it1"><a href=""></a></li>
+                            <li class="it2"><a href=""></a></li>
+                            <li class="it3"><a href=""></a></li>
+                            <li class="it4"><a href=""></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="it2">
+                    <h3 class="bq_tit">건강증진센터</h3>
+                    <div class="bq_con">
+                        <ul class="bqs2">
+                            <li class="it1"><a href=""></a></li>
+                            <li class="it2"><a href=""></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="it3">
+                    <h3 class="bq_tit">아주스토리</h3>
+                    <div class="bq_con">
+                        <div class="slide">
+                        <ul class="bqs3">
+                            <li class="it1"><a href=""></a></li>
+                            <li class="it2"><a href=""></a></li>
+                            <li class="it3"><a href=""></a></li>
+                        </ul>
+                        <ul class="btn_frame">
+                            <li class="bt1"><button class="on"></button></li>
+                            <li class="bt2"><button></button></li>
+                            <li class="bt3"><button></button></li>
+                        </ul>
+                    </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <footer class="ft">
+            <div class="ft_top">
+                <ul class="fnb">
+                    <li><a href="#">이메일주소 무단수집거부</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">환자권리장전</a></li>
+                </ul>
+            </div>
+            <div class="ft_bot">
+                <div class="copy">(16499) 경기도 수원시 영동구 월드컵로 164 | 대표전화: 1688-6144 <br>
+                COPYRIGHT &copy; AJOU UNIVERSITY MEDICAL CENTER. ALL RIGHTS RESERVED</div>
+                <a href="#" class="sup"></a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
