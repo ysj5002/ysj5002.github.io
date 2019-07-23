@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+.vs1,.vs2{width: 100vw;height: 100vh;overflow: hidden;position: relative;clear: both;}
+        #page1 .img_box1{width: 400%;height: 100vh;overflow: hidden;position: relative;clear: both;
+        top: 0;left: 0;}
+        #page1 .img_box1 li{width: 25%;float: left;height: 100vh;position: relative;
+        background-repeat: no-repeat;background-size: cover;background-position: left center;}
+        #page1 .img_box1 li.on{margin-left: -100%;}
+        #page1 .img_box1 li.item1{background-image: url("./img/main1.png");}
+        #page1 .img_box1 li.item2{background-image: url("./img/main2.png");}
+        #page1 .img_box1 li.item3{background-image: url("./img/main3.png");}
+        #page1 .img_box1 li.item4{background-image: url("./img/main4.png");}
+        #page1 .img_box1 li.on{margin-left: -0%;}
+        #page1 .con_tit{color: #7f0019;position: absolute;bottom: 38%;left: 10%;font-size: 2.5em;
+        font-weight: bold;word-break: break-all;}
+        #page1 .con_tit.on{opacity: 1;}
+        #page1 .con_com{color: #7f0019;position: absolute;bottom: 30%;left: 10%;font-size: 1.4em;
+        font-weight: bold;}
+        #page1 .more{position: absolute;bottom: 24%;left: 10%;width: 120px;height: 40px;
+        background: rgb(42, 119, 182);color: #ffffff;font-weight: bold;font-size: 1.2em;
+        border-radius: 10px;cursor: pointer;}
+        #page2 .img_box2{width: 800%;height: 100vh;}
+        #page2 .img_box2 li{width: 12.5%;float: left;height: 100vh;
+        background-repeat: no-repeat;background-size: 50%;background-position: center 50%;position: relative;}
+        #page2 .img_box2 li.item1{background-image: url("./img/img1.jpg");}
+        #page2 .img_box2 li.item2{background-image: url("./img/img2.jpg");}
+        #page2 .img_box2 li.item3{background-image: url("./img/img3.jpg");}
+        #page2 .img_box2 li.item4{background-image: url("./img/img4.jpg");}
+        #page2 .more{width: 120px;height: 40px;position: absolute;bottom: 10%;left: calc(50% - 60px);
+        background: rgba(42,119,182);color: #fff;font-weight: bold;font-size: 1.2em;border-radius: 10px;
+    cursor: pointer;text-align: center;line-height: 40px;display: block;}
+        .img_box2 a{font-size: 2.6em;text-align: center;line-height: 6;color: #333333;font-weight: bold;
+            display: block;width: 50%;margin: 0 auto;}
+        #page3 a{background-position: center center;background-repeat: no-repeat;
+        background-size: 100%;background-image: url("./img/sale.jpg");display: block;background-attachment: fixed;
+        width: 80vw;height: 100vh;margin: 0 auto;}
+        .con_lst{width: 100vw;height: 100vh;}
+        .con_lst li{width: 33.3333%;height: 100%;clear: none;float: left;
+        background-repeat: no-repeat;background-size: cover;background-position: center center;}
+        .con_lst li a{display: block;width: 100%;height: 100%;background-color: rgba(0,0,0,0.5);
+        transition: 0.5s;color: #ffffff;font-size: 2em;text-align: center;line-height: 32;
+        font-weight: 600;}
+        .con_lst li a:hover{background-color: rgba(0,0,0,0);}
+        .con_lst li.item1{background-image: url("./img/8.png");}
+        .con_lst li.item2{background-image: url("./img/9.png");}
+        .con_lst li.item3{background-image: url("./img/21.png");}
+        .btns1{width: 150px;height: 20px;position: absolute;bottom: 17%;left: calc(50% - 75px);}
+        .btns1 li{float: left;margin-left: 20px;}
+        .btns1 li{display: block;width: 10px;height: 10px;background: #ffffff;
+    border-radius: 50%;cursor: pointer;}
+        .btns1 li.on{background: #333333;}
+        .btns1 input{display: none;}
+        .btns2{width: 150px;height: 20px;position: absolute;bottom: 17%;left: calc(50% - 75px);}
+        #page2 .btns2{width: 150px;height: 20px;position: absolute;bottom: 27%;left: calc(50% - 75px);}
+        .btns2 li{float: left;margin-left: 20px;}
+        .btns2 li{display: block;width: 10px;height: 10px;background: #ffffff;
+    border-radius: 50%;cursor: pointer;}
+        .btns2 li.on{background: #333333;}
+        .btns2 input{display: none;}
+        
+        @media screen and (max-width:767px){
+            /* 모바일 사이즈 */
+            .con_lst li{width: 100%;height: 33.3333%;clear: both;float: none;}
+            .con_lst li a{text-align: center;line-height: 10;}
+            .gnb{display: none;}
+            .logo{width: 70px;padding-top: 2em;}
+            .logo img{width: 70px;}
+            #ft{height: 250px;}
+            #page2 .img_box li{background-size: contain;}
+            .fnb_frame{width: 100%;}
+        .fnb_frame li{width: 30%;}
+        .bot_frame{width: 100%;}
+        .fnb2{display: none;}
+        .copy{width: 100%;text-align: center;padding: 10px;margin-top: -60px;line-height: 3;}
+        .sns_box{float: right;width: 33.3333%;}
+        .sns_box li{margin-left: 8px;}
+        #page1 .con_tit{color: #7f0019;position: absolute;bottom: 45%;left: 10%;font-size: 1.8em;
+        font-weight: bold;}
+        #page1 .con_com{color: #7f0019;position: absolute;bottom: 40%;left: 10%;font-size: 1em;
+        font-weight: bold;}
+        #page1 .more{position: absolute;bottom: 30%;left: 10%;width: 100px;height: 30px;
+        background: rgb(42, 119, 182);color: #ffffff;font-weight: bold;font-size: 1.2em;
+        border-radius: 10px;cursor: pointer;}
+        }
+        @media screen and (min-width:768px) and (max-width:1280px){
+            /* 저해상도 데스크탑 */
+            .gnb{display: none;}
+            #ft{height: 200px;}
+            .logo{width: 70px;padding-top: 2em;}
+            .logo img{width: 70px;}
+            #page2 .img_box li{background-size: contain;}
+            .fnb_frame{width: 100%;}
+        .fnb_frame li{width: 20%;}
+        .bot_frame{width: 100%;}
+        .fnb2{width: 66.6666%;}
+        .fnb2 li{width: 50%;}
+        .fnb2 li a{text-align: center;}
+        .copy{width: 100%;text-align: center;padding: 10px;margin-top: -30px;line-height: 3;}
+        .sns_box{float: right;width: 33.3333%;}
+        }
+        @media screen and (min-width:1281px){
+            /* 고해상도 데스크탑 */
+        }

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        $(document).ready(function () {
+            var wh = $(window).height();
+            $(".page").each(function (index) {
+                $(this).attr("data-val", index * wh);
+            });
+            $(".page").on("mousewheel DOMMouseScroll", function (e) {
+                var secPos = parseInt($(this).attr("data-val"));
+                if (e.originalEvent.wheelDelta >= 0) {
+                    $("html, body").stop().animate({ scrollTop: secPos - wh }, 600);
+                    return false;
+                } else if (e.originalEvent.wheelDelta < 0) {
+                    $("html, body").stop().animate({ scrollTop: secPos + wh }, 600);
+                    return false;
+                };
+            });
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            width: 100%;
+            -ms-overflow-style: none;
+            font-size: 14px;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        input,
+        label,
+        button {
+            outline: none;
+            border: none;
+            background-image: none;
+            background-color: transparent;
+        }
+
+        .hd {
+            width: 100%;
+            position: fixed;
+            height: 120px;
+            background: #ccccccad;
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
+
+        .page {
+            clear: both;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        #page1 {
+            background: #123;
+        }
+
+        #page2 {
+            background: #456;
+        }
+
+        #page3 {
+            background: #789;
+        }
+
+        #page4 {
+            background: #abc;
+        }
+
+        .ft {
+            width: 100%;
+            height: 120px;
+            clear: both;
+            background: #ddeeff;
+        }
+
+        .logo {
+            display: block;
+            float: left;
+            margin-left: 30px;
+            padding-top: 20px;
+            width: 100px;
+            height: auto;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        #gnb {
+            float: right;
+            margin-right: 30px;
+        }
+
+        #gnb li {
+            float: left;
+            padding: 3em;
+        }
+
+        #gnb li a {
+            color: #333333;
+            font-size: 1.2em;
+        }
+
+        .vs {
+            width: 100%;
+            height: 100%;
+            clear: both;
+            position: relative;
+        }
+
+        .img_box {
+            width: 400%;
+            height: 100%;
+        }
+
+        .img_box li {
+            width: 25%;
+            height: 100vh;
+            float: left;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .img_box li.item1 {
+            background-image: url("https://www.placehold.it/1200x900/aab");
+        }
+
+        .img_box li.item2 {
+            background-image: url("https://www.placehold.it/1200x900/3c8");
+        }
+
+        .img_box li.item3 {
+            background-image: url("https://www.placehold.it/1200x900/93f");
+        }
+
+        .img_box li.item4 {
+            background-image: url("https://www.placehold.it/1200x900/1b1");
+        }
+
+        .vs_tit {
+            padding-left: 40px;
+            padding-top: 50rem;
+            transition: 0.6s;
+            font-size: 2em;
+            opacity: 0;
+        }
+
+        .vs_com {
+            padding-left: 40px;
+            padding-top: 50rem;
+            transition: 0.6s;
+            font-size: 1.6em;
+            opacity: 0;
+        }
+
+        .vs_more {
+            margin-left: 40px;
+            display: block;
+            margin-top: 40px;
+            transition: 0.6s;
+            font-size: 1.2em;
+            padding: 5px;
+            background: #123;
+            width: 100px;
+            text-align: center;
+            color: #ffffff;
+            font-weight: bold;
+            border-radius: 20px;
+            opacity: 0;
+        }
+
+        .img_box li.on .vs_tit {
+            opacity: 1;
+            padding-top: 20rem;
+        }
+
+        .img_box li.on .vs_com {
+            opacity: 1;
+            padding-top: 7rem;
+        }
+
+        .img_box li.on .vs_more {
+            opacity: 1;
+        }
+
+        .btn_box1 {
+            position: absolute;
+            width: 80px;
+            left: calc(50% - 40px);
+            height: 30px;
+            bottom: 5rem;
+        }
+
+        .btn_box1 li {
+            width: 20px;
+            height: 20px;
+            float: left;
+        }
+
+        .btn_box1 li button {
+            width: 12px;
+            height: 12px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            background: transparent;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .btn_box1 li.on button {
+            background: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="hd">
+        <a href="ex01.html" class="logo">
+            <img src="./img/logo.png" alt="">
+        </a>
+        <nav id="gnb">
+            <ul>
+                <li><a href="">메뉴1</a></li>
+                <li><a href="">메뉴2</a></li>
+                <li><a href="">메뉴3</a></li>
+                <li><a href="">메뉴4</a></li>
+                <li><a href="">메뉴5</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="page" id="page1">
+        <figure class="vs">
+            <ul class="img_box">
+                <li class="item1 on">
+                    <h2 class="vs_tit">타이틀1</h2>
+                    <p class="vs_com">내용1</p>
+                    <a href="" class="vs_more">더보기</a>
+                </li>
+                <li class="item2">
+                    <h2 class="vs_tit">타이틀2</h2>
+                    <p class="vs_com">내용2</p>
+                    <a href="" class="vs_more">더보기</a>
+                </li>
+                <li class="item3">
+                    <h2 class="vs_tit">타이틀3</h2>
+                    <p class="vs_com">내용3</p>
+                    <a href="" class="vs_more">더보기</a>
+                </li>
+                <li class="item4">
+                    <h2 class="vs_tit">타이틀4</h2>
+                    <p class="vs_com">내용4</p>
+                    <a href="" class="vs_more">더보기</a>
+                </li>
+            </ul>
+            <ul class="btn_box1">
+                <li class="it1 on"><button class="btn"></button></li>
+                <li class="it2"><button class="btn"></button></li>
+                <li class="it3"><button class="btn"></button></li>
+                <li class="it4"><button class="btn"></button></li>
+            </ul>
+        </figure>
+    </div>
+    <div class="page" id="page2"></div>
+    <div class="page" id="page3"></div>
+    <div class="page" id="page4"></div>
+    <footer class="ft">
+
+    </footer>
+</body>
+
+</html>

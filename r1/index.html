@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./img/favicon.png">
+    <link rel="stylesheet" href="common.css">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <title>MUJI</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="common.js"></script>
+  <script>
+//   $(document).ready(function(){
+//       $(".gnb_btn").click(function(){
+//           $(".collap").fadeIn();
+//       });
+//       $(".close_btn").click(function(){
+//         $(".collap").fadeOut();
+//       });
+//   });
+  $(document).ready(function(){
+    var wh = $(window).height();
+    var wdd = $(window).width();
+    $(".content").each(function(index){
+        $(this).attr("data-val", index*wh);
+    });
+    $(".content").on("mousewheel DOMMouseScroll", function(e){
+        var secPos = parseInt($(this).attr("data-val"));
+        if(e.originalEvent.wheelDelta >= 0){
+            $("html, body").stop().animate({scrollTop:secPos - wh},600);
+            return false;
+        } else if(e.originalEvent.wheelDelta < 0){
+            $("html, body").stop().animate({scrollTop:secPos + wh},600);
+            return false;
+        };
+    });
+    $(".btns1 li").click(function(i){
+        $(this).addClass("on");
+        $(this).siblings().removeClass("on");
+        var idxx = $(this).index();
+        $(".img_box1 li").eq(idxx).addClass("on");
+        $(".img_box1 li").eq(idxx).siblings().removeClass("on");
+        $(".img_box1").not(":animated").animate({"margin-left":idxx*-1*wdd},600);
+    });
+    $(".btns2 li").click(function(i){
+        $(this).addClass("on");
+        $(this).siblings().removeClass("on");
+        var idex = $(this).index();
+        $(".img_box2 li").eq(idex).addClass("on");
+        $(".img_box2 li").eq(idex).siblings().removeClass("on");
+        $(".img_box2").not("animated").animate({"margin-left":idex*-1*wdd},600);
+    });
+    // var wd = $("#page1").width();
+    // setInterval(function(){nextAni();},3000);
+    // function nextAni(){
+    // $("#page1 .img_box").not(":animated").animate({"margin-left":-wd+"px"},800,function(){
+    //     $("#page1 .img_box li").eq(0).appendTo($("#page1 .img_box"));
+    //     $("#page1 .img_box").css("margin-left","0px");
+    // });
+    // };
+    // var wd2=$("#page2").width();
+    // setInterval(function(){nextAni2();},3000);
+    // function nextAni2(){
+    // $("#page2 .img_box").not(":animated").animate({"margin-left":-wd2+"px"},800,function(){
+    //     $("#page2 .img_box li").eq(0).appendTo($("#page2 .img_box"));
+    //     $("#page2 .img_box").css("margin-left","0px");
+    // });
+    // };
+  });
+  </script>
+</head>
+<body>
+    <div class="collap">
+        <a href="index.html" class="col_logo"><img src="./img/col_logo.png" alt="col_logo"></a>
+        <button class="gnb_btn">
+            <span class="item1"></span>
+            <span class="item2"></span>
+            </button>
+        <ul class="collaps">
+            <li><a href="sub1.html">온라인 스토어</a></li>
+            <li><a href="#">고객센터</a></li>
+            <li><a href="#">모바일 전용</a></li>
+            <li><a href="#">What is MUJI?</a></li>
+        </ul>
+    </div>
+    <main id="wrap">
+        <header id="hd">
+            <a href="index.html" class="logo"><img src="./img/logo.png" alt="로고"></a>
+            <div class="lang"></div>
+            <button class="gnb_btn">
+                <span class="item1"></span>
+                <span class="item2"></span>
+                </button>
+            <nav class="gnb">
+                <ul>
+                    <li><a href="sub1.html">온라인 스토어</a></li>
+                    <li><a href="#">고객센터</a></li>
+                    <li><a href="#">모바일 전용</a></li>
+                    <li><a href="#">What is MUJI?</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="content" id="page1">
+            <div class="vs1">
+            <ul class="img_box1">
+                <li class="item1"></li>
+                <li class="item2"></li>
+                <li class="item3"></li>
+                <li class="item4"></li>
+            </ul>
+            <div class="btn_frame">
+                <ul class="btns1">
+                    <li class="btn1 on"></li>
+                    <li class="btn2"></li>
+                    <li class="btn3"></li>
+                    <li class="btn4"></li>
+                </ul>
+            </div>
+            <h1 class="con_tit">無印良品은 브랜드가 아닙니다.</h1>
+            <p class="con_com">無印良品은 지구를 생각하고 소비의 미래를<br>바라보는 관점에서 상품을 만들어 냅니다.</p>
+            <button class="more">MORE</button>
+        </div>
+        </section>
+        <section class="content" id="page2">
+            <ul class="img_box2">
+                <li class="item1">
+                    <a href="sub1.html">여름나기
+                    </a>
+                </li>
+                <li class="item2"><a href="sub1.html">폴리에틸렌케이스 시리즈</a>
+                    </li>
+                <li class="item3"><a href="sub1.html">푹신 소파</a>
+                    </li>
+                <li class="item4"><a href="sub1.html">스니커</a>
+                    </li>
+            </ul>
+            <div class="btn_frame">
+                    <ul class="btns2">
+                        <li class="btn1 on"></li>
+                        <li class="btn2"></li>
+                        <li class="btn3"></li>
+                        <li class="btn4"></li>
+                    </ul>
+                </div>
+                <a href="sub1.html" class="more">MORE</a>
+        </section>
+        <section class="content" id="page3">
+                <a href="sub1.html"></a>
+            </section>
+        <section class="content" id="page4">
+            <ul class="con_lst">
+                <li class="item1"><a href="sub1.html">온라인 스토어</a></li>
+                <li class="item2"><a href="#">고객센터</a></li>
+                <li class="item3"><a href="#">What is MUJI?</a></li>
+            </ul>
+        </section>
+        <footer class="content" id="ft">
+            <nav class="fnb_frame">
+                <ul class="fnb">
+                    <li><a href="#">온라인 스토어</a></li>
+                    <li><a href="#">매장정보</a></li>
+                    <li><a href="#">Mail Magazine</a></li>
+                    <li><a href="#">카탈로그</a></li>
+                    <li><a href="#">대량구매 고객님께</a></li>
+                    <li><a href="#">고객센터</a></li>
+                    <li><a href="#">채용공고</a></li>
+                    <li><a href="#">Message from MUJI</a></li>
+                    <li><a href="#">기업정보</a></li>
+                    <li><a href="#">What is MUJI?</a></li>
+                </ul>
+            </nav>
+            <div class="bot_frame">
+            <div class="copy">&copy; Ryohin Keikaku Co., Ltd.</div>
+            <ul class="fnb2">
+                <li><a href="#">LOTTE.com.lnc</a></li>
+                <li><a href="#">공정거래위원회 사업자정보확인</a></li>
+            </ul>
+            <div class="sns">
+                <ul class="sns_box">
+                    <li class="sns1"><a href="#">sns1</a></li>
+                    <li class="sns2"><a href="#">sns2</a></li>
+                    <li class="sns3"><a href="#">sns3</a></li>
+                    <li class="sns4"><a href="#">sns4</a></li>
+                </ul>
+            </div>
+        </div>
+        </footer>
+    </main>
+</body>
+</html>

@@ -1,0 +1,23 @@
+	
+	반응형 제1 과제
+
+		- 소재 : 패션/주얼리/잡화
+		- 주제 : 본인이 자율적으로 해당 소재를 채택하여 주제를 선정한다.
+
+		샘플 사이트 : http://www.seoilfilm.com/
+
+		해당 샘플 사이트와 같이 본인이 선택한 주제의 사이트를 반응형으로 리디자인 또는 제작하시오.
+
+		필히 본인이 선택한 주제의 사이트를 위한 텍스트, 이미지, 동영상, 사운드 데이터를 준비해주세요.
+
+
+				-----	main#wrap     -----
+				-----      header#hd
+					a.logo>img+input+button.gnb_btn
+								----ul>li*5>a
+										-----
+				-----    section.content$*2
+					radio*4+h1.con_tit+p.con_com+button.more
+				-----    div.content3
+					ul.con_lst>li*3>a
+				-----    footer#ft

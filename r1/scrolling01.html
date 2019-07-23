@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>패럴럭스 스크롤링 연습1</title>
+    <style>
+    *{margin: 0;padding: 0;}
+    body,html{width: 100%;height: 100%;-ms-overflow-style: none;}
+    ::-webkit-scrollbar{display: none;}
+    ul{list-style: none;}
+    a{text-decoration: none;}
+    input,label,button{outline: none;border: none;background-image: none;background-color: transparent;}
+    .page{width: 100%;height: 100%;position: relative;clear: both;background-position: center center;
+    background-size: cover;background-repeat: no-repeat;}
+    #page1{background-image: url("https://www.placehold.it/1920x1080/111");}
+    #page2{background-image: url("https://www.placehold.it/1920x1080/222");background-attachment: fixed;}
+    #page3{background-image: url("https://www.placehold.it/1920x1080/333");}
+    #page4{background-image: url("https://www.placehold.it/1920x1080/444");}
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+    $(document).ready(function(){
+        //1) 한 페이지의 높이를 계산
+        var wh = $(window).height();
+        //2) 페이지 마다의 top(꼭대기)로 부터의 해당 페이지 위치를 계산해서 지정
+        $(".page").each(function(index){
+            $(this).attr("data-val", index*wh);
+        });
+        //3) 해당 페이지에서 마우스 휠을 굴릴 때 - 위로 스크롤 할 때/아래로 스크롤 할 때
+        $(".page").on("mousewheel DOMMouseScroll", function(e){
+            //현재 페이지의 위치값을 불러오기
+            var secPos = parseInt($(this).attr("data-val"));
+            //wheelDelta : 마우스 휠의 동작 값을 저장
+            if(e.originalEvent.wheelDelta >= 0){  //위로 스크롤
+                $("html, body").stop().animate({scrollTop:secPos - wh},600);
+                return false;
+            } else if(e.originalEvent.wheelDelta < 0) { //아래로 스크롤
+                $("html, body").stop().animate({scrollTop:secPos + wh},600);
+                return false;
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="page" id="page1"></div>
+    <div class="page" id="page2"></div>
+    <div class="page" id="page3"></div>
+    <div class="page" id="page4"></div>
+</body>
+</html>
