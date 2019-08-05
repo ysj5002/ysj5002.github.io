@@ -17,8 +17,8 @@
     input,label,button{outline: 0;border: 0;background-image: none;background-color: transparent;}
     #container{zoom: 1;padding-right: 200px;height: 100vh;overflow: hidden;}
     #container::after{content: "";display: block;clear: both;}
-    #hd{width: 200px;clear: both;float: left;position: fixed;}
-    #content{float: left;width: 100%;margin-left: 200px;position: relative;}
+    #hd{width: 200px;clear: both;float: left;position: fixed;top: 0;left: 0;}
+    #content{float: left;width: 100%;margin-left: 200px;position: relative;height: 100%;clear: both;}
     #aside{position: fixed;width: 90px;right: 4em;top: 9em;z-index: 99;height: 630px;border-radius: 25px;
     background: #fff;border: 1px solid #ccc;}
     .logo{display: block;width: 140px;height: 40px;padding: 30px;margin-top: 50px;}
@@ -50,9 +50,9 @@
     .snb li a{display: block;width: 90px;height: 90px;font-weight: bold;text-align: center;font-size: 11px;
     line-height: 140px;transition: 0.2s;}
     .snb li a:hover{color: #ea0087;}
-    .imgbox{width: 100%;height: 70vh;margin-top: -60vh;}
+    .imgbox{width: 100%;height: 400%;}
     .imgbox li{background-repeat: no-repeat;background-size: 100% 100%;background-position: center center;
-    width: 100%;height: 100%;}
+    width: 100%;height: 25%;}
     .imgbox li.on{margin-bottom: 70vh;}
     .imgbox li.it1{background-image: url("./slide1.jpg");}
     .imgbox li.it2{background-image: url("./slide2.jpg");}
@@ -60,11 +60,13 @@
     .imgbox li.it4{background-image: url("./slide4.jpg");}
     .imgbox li a{display: block;width: 100%;height: 100%;}
     .btn_box{width: 16px;position: fixed;left: 220px;top: calc(50% - 50px);height: 100px;}
-    .btn_box li{width: 12px;height: 12px;border-radius: 50px;background: #cccccc;margin: 0 auto;
-    margin-bottom: 17px;cursor: pointer;transition: 0.3s;}
+    .btn_box li{width: 12px;height: 12px;border-radius: 50px;background: #cccccc;margin: 0 auto;margin-bottom: 17px;cursor: pointer;transition: 0.3s;position: absolute;}
+    .btn1{top: 0;left: 0;}
+    .btn2{top: 40px;left: 0;}
+    .btn3{top: 70px;left: 0;}
+    .btn4{top: 100px;left: 0;}
     .btn_box li.on{height: 24px;background: #ea0087;}
-    #ft{height: 10vh;width: 100%;background: #ffffff;z-index: 999;clear: both;position: absolute;bottom: 0;left: 0;
-    border-top: 1px solid #ccc;}
+    #ft{height: 10vh;width: 100%;background: #ffffff;z-index: 999;clear: both;position: absolute;bottom: 0;left: 0;border-top: 1px solid #ccc;}
     .fnb{float: left;}
     .fnb li{float: left;}
     .fnb li a{display: block;font-size: 12px;padding: 10px;text-indent: 1em;}
@@ -96,24 +98,104 @@
     .snsbox li.sns6:hover{background-position: -38px -160px;}
     .snsbox li.sns7:hover{background-position: -38px -194px;}
     .snsbox li a{display: block;width: 100%;height: 100%;}
+    .hd2{display: none;position: fixed;width: 100%;height: 60px;background: #ffffff;top: 0;left: 0;z-index: 999;}
+    .logo2{display: block;width: 100px;margin: 15px auto;}
+    .logo2 img{width: 100px;}
+    .menu_btn{width: 50px;height: 50px;display: block;float: left;position: relative;margin-top: 5px;z-index: 9999;}
+    .menu_btn span{width: 25px;height: 4px;background: #ccc;display: block;position: absolute;left: 12px;}
+    .menu_btn span.it1{top: 14px;}
+    .menu_btn span.it2{top: 23px;}
+    .menu_btn span.it3{bottom: 14px;}
+    .searchico{color: #cccccc;font-size: 2em;display: block;width: 50px;height: 50px;position: absolute;top: 0;right: 0;margin-top: 5px;}
+    .closebtn{width: 40px;height: 40px;display: none;float: right;font-size: 2em;margin: 15px;}
+    @media screen and (max-width:1280px){
+        #hd{z-index: 9999;background: #ffffff;height: 100%;width: 100%;left: -110%;transition: 0.6s;}
+        .logo{margin-top: 0;}
+        #hd.on{left: 0%;}
+        .gnb{margin-top: 0;}
+        .gnb li a{font-size: 16px;}
+        #aside{display: none;}
+        .search{display: none;}
+        #container{overflow: visible;padding-right: 0;height: 100%;}
+        #content{margin-left: 0;height: 100%;margin-top: 60px;}
+        body,html{height: 100%;}
+        .hd2{display: block;}
+        .closebtn{display: block;}
+        .imgbox{height: 100%;}
+        .btn_box{display: none;}
+        #ft{height: 150px;clear: both;position: relative;}
+        .fnb{height: 50px;}
+        .fnb li{width: 50%;}
+        .fnb li a:after{display: none;}
+        .fnb li:nth-child(4){display: none;}
+        .fnb li:nth-child(6){display: none;}
+        .fnb li:nth-child(7){display: none;}
+        .fnb li:nth-child(8){display: none;}
+        .fnb li a{font-size: 10px;}
+        .family{display: none;}
+        .snsbox{width: 100%;}
+        .snsbox li{margin-right: 0;margin-left: 4%;}
+        .copy{text-indent: 0;}
+    }
     </style>
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script>
     $(document).ready(function(){
-        var intv = setInterval(function(){slide()},3000);
-        // $(".imgbox li").eq(0).appendTo($(".imgbox li"));
-        var wh = $("#container").height();
-        var idx = $(".imgbox li").index();
-        function slide(){$(".imgbox").animate({"margin-top": "-130vh"},800,function(){
-            $(".imgbox li").eq(0).appendTo(".imgbox");
+        var wd = $("#content").height();
+    var sl = $(".imgbox");
+    var btn = $(".btn_box");
+    var len = $(".imgbox li").length;
+    function nextSlideAni(){
+        sl.not(":animated").animate({"margin-top":-wd+"px"}, 600, function(){
+            sl.find("li").eq(0).appendTo(sl);
+            sl.css("margin-top", "0px");
+            btn.find("li").eq(0).appendTo(btn);
+            btn.find("li").removeClass("on");
+            btn.find("li").eq(0).addClass("on");
         });
+    }
+    var intv1 = setInterval(function(){ 
+        nextSlideAni();
+    }, 3000);
+    $(".btn_box li").click(function(){
+        clearInterval(intv1);
+        var ix = $(this).index();
+        for(var i=0;i<ix-1;i++){
+            sl.find("li").eq(0).appendTo(sl);
+            btn.find("li").eq(0).appendTo(btn);
         }
+        nextSlideAni();
+        intv1 = setInterval(function(){ nextSlideAni(); }, 3000);
+    });
+    var wd = $(window).width();
+    if(wd<1200){
+        clearInterval(intv1);
+    }
+    $(".menu_btn").click(function(){
+        $("#hd").addClass("on");
+    });
+    $(".closebtn").click(function(){
+        $("#hd").removeClass("on");
+    });
     });
     </script>
 </head>
 <body>
     <div id="container">
+        <div class="hd2">
+            <div class="menu_btn">
+                <span class="it1"></span>
+                <span class="it2"></span>
+                <span class="it3"></span>
+            </div>
+            <a href="" class="logo2"><img src="logo.png" alt=""></a>
+            <button class="searchico"><i class="xi-search"></i>
+            </button>
+        </div>
         <header id="hd">
+            <button class="closebtn">
+                <i class="xi-close"></i>
+            </button>
             <a href="" class="logo"><img src="logo.png" alt="로고"></a>
             <ul class="gnb">
                 <li><a href="">U+Shop</a></li>
