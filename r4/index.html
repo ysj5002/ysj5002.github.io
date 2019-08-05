@@ -124,8 +124,9 @@
         .imgbox{height: 100%;}
         .btn_box{display: none;}
         #ft{height: 150px;clear: both;position: relative;}
-        .fnb{height: 50px;}
-        .fnb li{width: 50%;}
+        .fnb{height: 50px;width: 100%;}
+        .fnb li{width: 25%;}
+        .fnb li a{padding: 1em;text-indent: 0;font-size: 10px;text-align: center;}
         .fnb li a:after{display: none;}
         .fnb li:nth-child(4){display: none;}
         .fnb li:nth-child(6){display: none;}
@@ -134,8 +135,12 @@
         .fnb li a{font-size: 10px;}
         .family{display: none;}
         .snsbox{width: 100%;}
-        .snsbox li{margin-right: 0;margin-left: 4%;}
+        .snsbox li{margin-right: 0;margin-left: 5%;}
         .copy{text-indent: 0;}
+        .sns_wrap{width: 80%;margin: 0 auto;}
+    }
+    @media screen and (min-width:768px) and (max-width:1024px){
+        .snsbox li{margin-right: 0;margin-left: 9%;}
     }
     </style>
     <script src="https://code.jquery.com/jquery-latest.js"></script>
@@ -263,6 +268,7 @@
             </ul>
         </div>
         <ul class="snsbox">
+            <div class="sns_wrap">
             <li class="sns1"><a href=""></a></li>
             <li class="sns2"><a href=""></a></li>
             <li class="sns3"><a href=""></a></li>
@@ -270,6 +276,7 @@
             <li class="sns5"><a href=""></a></li>
             <li class="sns6"><a href=""></a></li>
             <li class="sns7"><a href=""></a></li>
+        </div>
         </ul>
                 <div class="copy">
                         Copyright © LG Uplus Corp. All Rights Reserved.
