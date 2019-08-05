@@ -16,7 +16,7 @@
     .hd{width: 100%;height: 100px;background: #ffffff;position: fixed;z-index: 500;}
     .hdwrap{width: 80%;margin: 0 auto;}
     .logo{display: block;width: 229px;height: 57px;margin-top: 21px;float: left;}
-    .gnb{float: right;}
+    .gnb{float: right;transition: 0.6s;}
     .gnb li{float: left;position: relative;}
     .gnb li::before{content: "";display: block;width: 10px;height: 100px;background-image: url("./pat1.png");
     background-repeat: no-repeat;background-size: contain;background-position: center center;
@@ -99,17 +99,96 @@
     .copy{color: #ddd;padding-top: 20px;font-weight: bold;}
     .top_btn{position: fixed;right: 2%;bottom: 2%;width: 40px;height: 50px;color: #ffffff;background: #f37321;
     line-height: 50px;text-align: center;transform: skew(-15deg,-5deg);z-index: 9999;}
+    .menu_btn{width: 30px;height: 30px;display: none;float: right;margin-right: 1em;margin-top: 10px;position: relative;}
+    .menu_btn span{width: 25px;height: 3px;background: #f37321;display: block;position: absolute; }
+    .menu_btn span.it1{top: 8px;}
+    .menu_btn span.it2{top: 16px;}
+    .menu_btn span.it3{top: 24px;}
+    .gnb.on{right: 0;}
+    </style>
+    <style>
+    @media screen and (max-width:767px){
+        #page1{height: 50vh;}
+        #page2{height: 50vh;}
+        #page4{height: 50vh;}
+        .vs_tit{font-size: 3em;padding-top: 20%;}
+        .logo img{width: 120px;}
+        .logo{margin-left: 1em;width: 120px;margin-top: 15px;height: 30px;}
+        .hdwrap{width: 100%;}
+        .hd{height: 60px;}
+        .lang{margin: 0;width: 80px;margin-top: 15px;height: 30px;}
+        .lang li{margin: 0;}
+        .lang li a{width: 25px;height: 25px;font-size: 12px;line-height: 25px;}
+        .gnb{width: 100%;height: 100%;position: fixed;top: 60px;right: -110%;background: #ffffff;}
+        .gnb li::before{display: none;}
+        .gnb li{text-align: center;width: 100%;}
+        .top_btn{display: none;}
+        .menu_btn{display: block;}
+        #page1 img{margin-top: 60px;height: 100%;}
+        .con_wrap{width: 100%;margin: 1em;}
+        .con_com{display: none;}
+        .con_tit{font-size: 3em;padding-top: 10%;}
+        .btn_frame{right: 5%}
+        .con_com2{display: none;}
+        .con_wrap2{margin: 1em;width: 100%;}
+        .con_tit2{font-size: 3em;letter-spacing: 0.5em;}
+        .con_lst{width: 100%;height: 100%;}
+        .con_lst li{width: 100%;box-sizing: border-box;height: 33.3333%;}
+        .con_lst li.it1{width: 50%;}
+        .con_lst li.it2{width: 50%;}
+        .sub_tit{font-size: 1em;}
+        .sub_com{display: none;}
+        .sub_com2{font-size: 1em;}
+        .read::before{display: none;}
+        .ban_com{display: none;}
+        .ban_tit{margin: 0;padding-top: 40px;}
+        .tit{font-size: 2em;padding-top: 20%;width: 90%;margin: 0 auto;}
+        .ft{height: 150px;}
+        .ft_wrap{width: 100%;height: 100%;}
+        .fnb li{width: 25%;}
+        .fnb li:nth-child(1){display: none;}
+        .fnb li:nth-child(4){display: none;}
+        .fnb li:nth-child(5){display: none;}
+        .fnb li a{font-size: 10px;}
+        .fcom{display: none;}
+        .copy{font-size: 12px;text-align: center;padding-top: 70px;}
+    }
+    @media screen and (min-width:768px) and (max-width:1024px){
+        .gnb{width: 100%;height: 100%;position: fixed;top: 100px;right: -110%;background: #ffffff;}
+        .gnb li::before{display: none;}
+        .gnb li{text-align: center;width: 100%;}
+        .menu_btn{display: block;margin-top: 30px;}
+    }
     </style>
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script>
     $(document).ready(function(){
-        
+        $(".btn_frame li.it2").click(function(){
+            $(this).find("a").addClass("on");
+            $(this).siblings().find("a").removeClass("on");
+            $(".img_box li.it2").fadeIn(600);
+            $(".img_box li.it1").fadeOut(600);
+        });
+        $(".btn_frame li.it1").click(function(){
+            $(this).find("a").addClass("on");
+            $(this).siblings().find("a").removeClass("on");
+            $(".img_box li.it1").fadeIn(600);
+            $(".img_box li.it2").fadeOut(600);
+        });
+        $(".menu_btn").click(function(){
+            $(".gnb").toggleClass("on");
+        });
     });
     </script>
 </head>
 <body>
     <header class="hd">
         <div class="hdwrap">
+            <div class="menu_btn">
+                <span class="it1"></span>
+                <span class="it2"></span>
+                <span class="it3"></span>
+            </div>
         <a href="index.html" class="logo"><img src="./logo.png" alt="로고"></a>
         <ul class="lang">
             <li class="on"><a href="">KOR</a></li>
@@ -147,8 +226,8 @@
         </ul>
         <div class="th"></div>
         <ul class="btn_frame">
-            <li><a class="on"></a></li>
-            <li><a class=""></a></li>
+            <li class="it1"><a class="on"></a></li>
+            <li class="it2"><a class=""></a></li>
         </ul>
     </div>
     <div class="content" id="page3">
