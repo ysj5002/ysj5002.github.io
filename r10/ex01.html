@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{background-color: #000;}
+    section{margin-top: 3em;display: flex;flex-flow: column;align-items: center;}
+    .hexagon div{width: 200px;height: 150px;background: red;position: relative;display: inline-block;margin:0.2em}
+    .hexagon div::before{content: "";position: absolute;top: -25px;left: 0;width: 0;height: 0;border-left: 100px solid transparent;
+border-right: 100px solid transparent; border-bottom: 25px solid red;}
+    .hexagon div::after{content: "";position: absolute;bottom: -25px;left: 0;width: 0;height: 0;border-left: 100px solid transparent;
+border-right: 100px solid transparent;border-top: 25px solid red;}
+.row{margin-top: 1.3em;}
+#hexagon1{background: #111111;}
+#hexagon2{background: #222222;}
+#hexagon3{background: #333333;}
+#hexagon4{background: #444444;}
+@media screen and (max-width:767px){
+    .hexagon{text-align: center;}
+    .hexagon div{margin-top: 4em;}
+}
+@media screen and (min-width:768px) and (max-width:1280){
+    .hexagon div:nth-of-type(5){display: none;}
+}
+    </style>
+</head>
+<body>
+    <section>
+        <div class="hexagon">
+            <div id="hexagon1"></div>
+            <div id="hexagon2"></div>
+            <div id="hexagon3"></div>
+            <div id="hexagon4"></div>
+        </div>
+        <div class="row"></div>
+        <div class="hexagon">
+            <div id="hexagon1"></div>
+            <div id="hexagon2"></div>
+            <div id="hexagon3"></div>
+            <div id="hexagon4"></div>
+            <div id="hexagon5"></div>
+        </div>
+        <div class="row"></div>
+        <div class="hexagon">
+            <div id="hexagon1"></div>
+            <div id="hexagon2"></div>
+            <div id="hexagon3"></div>
+            <div id="hexagon4"></div>
+        </div>
+        <div class="row"></div>
+        <div class="hexagon">
+                <div id="hexagon1"></div>
+                <div id="hexagon2"></div>
+                <div id="hexagon3"></div>
+                <div id="hexagon4"></div>
+                <div id="hexagon5"></div>
+            </div>
+    </section>
+    <form action=""></form>
+</body>
+</html>

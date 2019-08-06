@@ -1,0 +1,26 @@
+
+	반응형 제10 과제
+
+		- 소재 : 그룹/지주기업
+		- 주제 : 본인이 자율적으로 해당 소재를 채택하여 주제를 선정한다.
+
+		샘플 사이트 : https://www.snuh.org/main.do (서울대학교)
+
+		해당 샘플 사이트와 같이 본인이 선택한 주제의 사이트를 반응형으로 리디자인 하시오.
+		(반응형 구현 기술은 cell이나 table-layout 방식을 이용할 것)
+
+		필히 본인이 선택한 주제의 사이트를 위한 텍스트, 이미지, 동영상, 사운드 데이터를 준비해주세요.
+		(시안, 색, 아이콘 , ... 등도 같이 준비할 것.)
+
+삼익
+
+	셀(cell)방식이란 : 셀의 크기를 몇 개로 정해놓고, 콘텐츠 컬럼 박스에 해당 클래스를 적용하는 방식이나
+			절대 좌표의 벌집(honeycomb)모양 형태를 절대좌표(absolute)로 쌓아 나가는 방식
+	.full_cell{width : 300px; height : 300px; overflow : hidden;}
+	.half_cell{width : 300px; height : 150px; overflow : hidden;}
+	.double_cell {width : 300px; height : 600px; overflow : hidden;}
+
+	<div class="full_cell cell">콘텐츠 </div>
+	<div class="half_cell cell">반 콘텐츠 </div>
+	<div class="half_cell cell">반 콘텐츠 </div>
+	<div class="double_cell cell">이중 콘텐츠 </div>
