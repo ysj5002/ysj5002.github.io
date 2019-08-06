@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>슬로우 쇼핑몰</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    body,html{width: 100%;font-family: 'Noto sans KR','Noto Sans', sans-serif;font-size: 14px;}
+    ul{list-style: none;}
+    a{text-decoration: none;}
+    input,label,button{outline: none;border: none;background-image: none;background-color: transparent;}
+    .container{display: grid;
+    grid-template-areas: "header header header"
+                        "div #page1,2,3 ads"
+                        "div #page4,5,6 ads"
+                        "div #page7,8 ads"
+                        "div cate div"
+                        "footer footer footer";
+    grid-template-columns: 250px 1fr 250px;
+    grid-template-rows: 100px
+                        100vh
+                        100px
+                        150px;
+    min-height: 100vh;}
+    .hd{position: relative;background: #ffffff;}
+    .logo{width: 120px;height: 75px;display: block;float: left;margin-top: 12px;margin-right: 20px;}
+    .logo img{width: 100px;height: 75px;}
+    .tnb{float: right;}
+    .tnb li{float: left;margin: 15px 0 0 20px;}
+    .tnb li a{display: block;color: #333333;font-size: 12px;}
+    .gnb{float: left;}
+    .gnb>li{float: left;margin: 40px 20px;}
+    .gnb>li>a{display: block;color: #333333;}
+    .section{position: relative;width: 1fr;height: 1fr;}
+    .content{width: 25%;float: left;clear: none;position: absolute;background-size: cover;
+    background-position: center center;background-repeat: no-repeat;transition: 0.6s;}
+    .content a{display: block;width: 100%;height: 100%;}
+    #page1{width: 48%;height: 68%;left: 0;top: 0;background-image: url("img1.jpg");
+    background-size: 100%;}
+    #page1:hover{background-size: 110%;}
+    #page1:hover .txtbox{text-shadow: 3px 3px 3px #666;}
+    #page2{height: 22%;width: 23%;right: 27%;background-image: url("img2.jpg");background-position: left center;}
+    #page3{height: 52%;right: 0;top: 0;background-image: url("img3.png");}
+    #page4{height: 52%;width: 23%;right: 27%;top: 24%;background-image: url("img4.jpg");}
+    #page5{height: 22%;right: 0;top: 54%;background-image: url("img5.jpg");}
+    #page6{width: 48%;height: 30%;left: 0;bottom: 0;background-image: url("img6.jpg");}
+    #page7{height: 22%;background: #fff8e4;width: 23%;bottom: 0;right: 27%;overflow: hidden;}
+    #page7:hover img{width: 110%;}
+    #page7 img{width: 100%;transition: 0.6s;}
+    #page8{height: 22%;background: #e9fcff;right: 0;bottom: 0;}
+    #page8:hover img{width: 110%;}
+    #page8 img{width: 100%;transition: 0.6s;height: auto;}
+    #page3 a{width: 100%;height: 100%;display: block;color: #ffffff;padding: 2em;box-sizing: border-box;transition: 0.5s;opacity: 0;font-size: 1.4em;}
+    #page3:hover a{background: #0000004d;opacity: 1;}
+    .txt_box{width: 90%;height: 90%;margin: 0 auto;margin-top: 5%;border: 1px solid #ccc;padding: 1.4em;box-sizing: border-box;transition: 0.5s;opacity: 0;background: #000000be;}
+    .txt_box2{width: 100%;height: 100%;border: 1px solid #ccc;padding: 1em;box-sizing: border-box;transition: 0.5s;opacity: 0;background: #000000be;}
+    .p_tit{font-size: 1.8em;padding-top: 2em;color: #ffffff;}
+    .txt_box2 .p_tit{font-size: 1.8em;padding-top: 0.2em;color: #ffffff;}
+    .p_com{font-size: 1.1em;padding-top: 1em;color: #ffffff;}
+    .more{width: 120px;height: 40px;margin: 0 auto;display: block;margin-top: 10%;border: 1px solid #ccc;color: #ffffff;cursor: pointer;transition: 0.5s;}
+    .more:hover{background: #ffffff;color: #333333;}
+    #page4 a:hover .txt_box{opacity: 1;}
+    #page5 a:hover .txt_box2{opacity: 1;}
+    .ft{background: #ffffff;}
+    .txtbox{position: absolute;bottom: 30%;left: 5%;color: #ffffff;transition: 0.6s;}
+    .con_tit{font-size: 2.6em;}
+    .con_com{font-size: 1.4em;}
+    .cate{background: #fff0c0;}
+    .item{float: left;width: 80%;height: 50px;}
+    .item>li{float: left;width: 20%;line-height:100px;text-indent: 3em;position: relative;cursor: pointer;font-size: 16px;color: #333333;}
+    .item>li{font-weight: bold;}
+    .item>li:nth-child(1):after{content: "△";position: absolute;top: 0;right: 10px;}
+    .item>li:nth-child(4):after{content: "△";position: absolute;top: 0;right: 10px;}
+    .it_lst{position: absolute;bottom: 5em;left: 0;background: #fff0c0;width: 100%;display: none;}
+    .it_lst.on{display: block;}
+    .it_lst li a{display: block;color: #333333;}
+    #page7 a,#page8 a{position: absolute;top: 0;left: 0;width: 100%;height: 100%;color: #ffffff;opacity: 0;font-weight: bold;padding: 4.5em;box-sizing: border-box;}
+    #page7:hover a,#page8:hover a{opacity: 1;}
+    #page7:hover,#page8:hover{background: rgba(0, 0, 0, 0.685);}
+    .search{float: right;}
+    .ft{background: #ededed;position: relative;}
+    .fnb{width: 100%;clear: both;height: 40px;}
+    .fnb li{float: left;line-height: 40px;width: 12%;}
+    .fnb li a{color: #333333;text-align: left;display: block;}
+    .fnb li a:hover{text-decoration: underline;}
+    .address{text-align: center;padding-top: 20px;}
+    .copy{text-align: center;padding-top: 10px;}
+    .sns li{float: left;margin-right: 20px;}
+    .sns{position: absolute;right: 0;top: 10px;}
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(".item li").eq(0).click(function(){
+            $(this).find(".it_lst").toggleClass("on");
+        });
+        $(".item li.it4").click(function(){
+            $(this).find(".it_lst").toggleClass("on");
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div></div>
+        <header class="hd">
+            <a href="index.html" class="logo"><img src="logo.png" alt="logo"></a>
+            <ul class="tnb">
+                <li><a href="">로그인</a></li>
+                <li><a href="">회원가입</a></li>
+                <li><a href="">주문/배송</a></li>
+                <li><a href="">쇼룸</a></li>
+                <li><a href="">정품인증</a></li>
+                <li><a href="">Global</a></li>
+            </ul>
+            <ul class="gnb">
+                <li><a href="">About Us</a></li>
+                <li><a href="">Products</a></li>
+                <li><a href="">Reviews</a></li>
+                <li><a href="">Supprot</a></li>
+                <li><a href="">Notice</a></li>
+            </ul>
+        </header>
+        <div class="blank"></div>
+        <div class="blank"></div>
+        <ul class="section">
+            <li class="content" id="page1"><a href="">
+                <div class="txtbox">
+                <h1 class="con_tit">Mattress</h1>
+                <p class="con_com">특허받은 4-Layer기술로 더 편안하게, 슬로우 매트리스</p>
+            </div>
+            </a></li>
+            <li class="content" id="page2"><a href=""></a></li>
+            <li class="content" id="page3"><a href="">바디필로우 에어플렉스</a></li>
+            <li class="content" id="page4"><a href="">
+                <div class="txt_box">
+                <h3 class="p_tit">Tribe</h3>
+                <p class="p_com">Slou의 비전을 공유하는 큐레이션 프로젝트, <br>
+                    '슬로우 트라이브'</p>
+                <button class="more">See All Tribe</button>
+            </div>
+            </a></li>
+            <li class="content" id="page5"><a href="">
+                <div class="txt_box2">
+                <h3 class="p_tit">Lab</h3>
+                <p class="p_com">슬로우가 편안한 진짜 이유를 
+                        실험과 연구를 통해서 증명합니다.</p>
+                <button class="more">See All Lab</button>
+            </div>
+            </a></li>
+            <li class="content" id="page6"><a href=""></a></li>
+            <li class="content" id="page7"><a href="">모션전용 프레임 헤드보드형</a><img src="img7.png" alt=""></li>
+            <li class="content" id="page8"><a href="">
+                    토퍼 매트리스 베이직 7.0 커버_오가닉</a><img src="img8.png" alt=""></li>
+        </ul>
+        <div class="ads">
+
+        </div>
+        <div></div>
+        <div class="cate">
+            <ul class="item">
+                <li class="it1">매트리스<ul class="it_lst">
+                    <li><a href="">매트리스</a></li>
+                    <li><a href="">모션매트리스</a></li>
+                    <li><a href="">토퍼매트리스</a></li>
+                </ul></li>
+                <li class="it2">베개<ul class="it_lst">
+                </ul></li>
+                <li class="it3">프레임<ul class="it_lst">
+                </ul></li>
+                <li class="it4">커버<ul class="it_lst">
+                    <li><a href="">매트리스 커버</a></li>
+                    <li><a href="">토퍼매트리스 커버</a></li>
+                </ul></li>
+                <li class="it5">악세서리<ul class="it_lst">
+                </ul></li>
+            </ul>
+            <div class="search"></div>
+        </div>
+        <div></div>
+        <div style="background-color: #ededed;"></div>
+        <footer class="ft">
+            <ul class="fnb">
+                <li><a href="">About Us</a></li>
+                <li><a href=""><strong>개인정보 처리방침</strong></a></li>
+                <li><a href="">이용약관</a></li>
+            </ul>
+            <div class="address">(주) 일룸 | 대표이사 · 강성문 | 서울특별시 송파구 오금로 311 (오금동 45-1)
+                    1899-8588 | goodnight@slou.co.kr | 사업자등록번호 · 215-86-93600
+                    </div>
+            <div class="copy">Copyright (c) 2018 iloom Inc. All rights reserved</div>
+            <ul class="sns">
+                <li class="it"><a href=""><img src="./sns1.png" alt=""></a></li>
+                <li class="it"><a href=""><img src="./sns2.png" alt=""></a></li>
+                <li class="it"><a href=""><img src="./sns3.png" alt=""></a></li>
+                <li class="it"><a href=""><img src="./sns4.png" alt=""></a></li>
+            </ul>
+        </footer>
+        <div style="background-color: #ededed;"></div>
+    </div>
+</body>
+</html>
