@@ -9,32 +9,33 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <style>
     *{margin: 0;padding: 0;}
-    body,html{width: 100%;font-family: 'Noto sans KR', sans-serif;font-size: 14px;}
+    body,html{width: 100%;font-family: 'Noto sans KR', sans-serif;font-size: 14px;height: auto;}
     ul{list-style: none;}
     a{text-decoration: none;}
     input,label,button{outline: none;border: none;background-image: none;background-color: transparent;}
-    .hd{width: 100%;height: 100px;background: #ffffff;}
-    .logo{width: 140px;height: 47px;display: block;float: left;margin-top: 26px;margin-left: calc(50% - 70px);}
-    .menu_btn{width: 100px;height: 100px;background: #996b56;float: right;display: block;position: relative;
+    .wrap{width: 100%;height: 100%;position: relative;}
+    .hd{width: 100%;height: 100px;background: #ffffff;position: relative;top: 0;right: 0;}
+    .logo{width: 140px;height: 47px;display: block;margin: 0 auto;padding-top: 30px;}
+    .menu_btn{width: 100px;height: 100px;background: #996b56;float: right;display: block;position: absolute;top: 0;right: 0;
     padding: 20px;box-sizing: border-box;cursor: pointer;}
     .menu_btn span{content: "";width: 50px;height: 4px;background: #ffffff;position: absolute;
     left: calc(50% - 25px);}
     .menu_btn span#it1{top: 30px;}
     .menu_btn span#it2{top: calc(50% - 2px);}
     .menu_btn span#it3{bottom: 30px;}
-    .con_wrap{width: 100%;height: 100%;overflow: hidden;}
-    .ft{width: 100%;height: 200px;background: #434343;position: relative;clear: both;}
+    .con_wrap{width: 100%;height: 100%;}
+    .ft{width: 100%;height: 200px;background: #434343;position: relative;;clear: both;bottom: 0;left: 0;}
     .content{width: 100%;height: 800px;clear: both;}
-    .content li{float: left;width: 33.3333%;min-height:505px;background-repeat: no-repeat;background-size: cover;
+    .content>li{float: left;width: 33.3333%;min-height:505px;background-repeat: no-repeat;background-size: cover;
     background-position: center center;height: 100%;transition: 0.5s;}
     #page1{background-image: url("con1.jpg");}
-    #page2{background-image: url("con2.JPG");}
+    #page2{background-image: url("con2.jpg");}
     #page3{background-image: url("vs1.jpg");}
-    .content li.on{width: 90%;position: relative;}
-    .content li.off{width: 5%;}
-    .content li.on .txt_box{width: 50%;position: absolute;right: 25%;bottom: 70%;z-index: 998;text-align: center;}
-    .content li.on .con_tit2::after{display: none;}
-    .content li.off .txt_box{display: none;}
+    .content>li.on{width: 90%;position: relative;}
+    .content>li.off{width: 5%;}
+    .content>li.on .txt_box{width: 50%;position: absolute;right: 25%;bottom: 70%;z-index: 998;text-align: center;}
+    .content>li.on .con_tit2::after{display: none;}
+    .content>li.off .txt_box{display: none;}
     .bg{width: 100%;min-height: 505px;transition: 0.3s;background-color: rgba(0,0,0,0.3);height: 800px;display: block;
     position: relative;}
     .bg.on{background-color: rgba(0,0,0,0.7);}
@@ -83,6 +84,47 @@
     .close span.it2{transform: rotate(-45deg);}
     .close.on{display: block;}
     .close.off{transform: rotate(45deg);display: block;}
+    .con_frame{width: 80%;height: 100%;background: #ffffff;display: block;position: absolute;left: 10%;top: 52%;border: 1px solid #ccc;}
+    .con_frame>img{width: 80%;margin: 100px auto;display: block;}
+    @media screen and (max-width:767px){
+        .hd{height: 60px;position: fixed;top: 0;left: 0;background: #ffffff;z-index: 999;}
+        .logo{width: 100px;height: auto;padding-top: 15px;}
+        .logo img{width: 100px;height: auto;}
+        .menu_btn{width: 60px;height: 60px;}
+        .menu_btn span{width: 30px;left: 15px;}
+        .menu_btn span#it1{top: 16px;}
+        .menu_btn span#it3{bottom: 16px;}
+        .content{height: auto;margin-top: 60px;}
+        .content>li{float: none;width: 100%;height: 510px;}
+        .bg{height: 510px;}
+        .con_com{display: none;}
+        .openlogo{width: 100px;height: auto;}
+        .openlogo img{width: 100px;height: auto;}
+        .close_btn{width: 50px;height: 50px;}
+        .close_btn span{position: absolute;right: 0;}
+        .menu{margin: 0;margin-top: 60px;}
+        .menu>li{float: none;width: 100%;height: 60px;}
+        .sub{display: none;}
+        .openvs{top: 60px;height: 100vh;}
+        .openvs img{height: calc(100vh - 60px);}
+        .open_tit{font-size: 3em;}
+        .open_com{font-size: 2em;left: 10%;padding: 10px;bottom: -50%;}
+        .open_com.on{bottom: 35%;}
+        .ft{position: relative;height: 150px;}
+        .fnb{padding: 0;}
+        .fnb li{width: 25%;}
+        .fnb li:nth-child(3),.fnb li:nth-child(4),.fnb li:nth-child(5){display: none;}
+        .fnb li a{font-size: 10px;}
+        .ft_bot{padding: 1em;}
+        .none{display: none;}
+    }
+    @media screen and (min-width:768px) and (max-width:1024px){
+        .con_com{display: none;}
+        .con_tit{font-size: 3em;}
+        .open_com{left: 20%;}
+        .fnb{padding: 0;}
+        .fnb li{width: 14.2%;}
+    }
     </style>
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script>
@@ -156,7 +198,10 @@
             $("#page2 .close").removeClass("on");
             $("#page1 .close").addClass("off");
             $("#page1 .close").removeClass("on");
-            
+        });
+        $(".close").click(function(){
+            $(".close").removeClass();
+            $(this).parnet("li").removeClass();
         });
     });
     </script>
@@ -215,9 +260,8 @@
                     </div>
                 </a>
                 </li>
-            </ul>
-        </div>
-        <footer class="ft">
+                
+    <footer class="ft">
             <ul class="fnb">
                 <li class="it1"><a href="" style="color:#ffffff;">개인정보처리방침</a></li>
                 <li class="it2"><a href="">이용약관</a></li>
@@ -229,12 +273,16 @@
             </ul>
             <div class="ft_bot">
                 <div class="copy">	
-                        04963) 서울특별시 광진구 워커힐로 177 | 대표이사 : 최신원, 박상규 <br>
+                       <p class="none"> 04963) 서울특별시 광진구 워커힐로 177 | 대표이사 : 최신원, 박상규 <br>
                          통신판매 신고번호 : 제2015-서울광진-0710호 | 사업자등록번호 : 124-81-00718 | 법인명 SK네트웍스(주) <br>
-                        객실문의 : 02-2022-0000 | 기타문의 : 02-455-5000 팩스 : 02-452-6867 | 이메일 : contact@walkerhill.com <br>
+                        객실문의 : 02-2022-0000 | 기타문의 : 02-455-5000 팩스 : 02-452-6867 | 이메일 : contact@walkerhill.com <br></p>
                         COPYRIGHT 2017 SK NETWORKS CO., LTD. WALKERHILL ALL RIGHTS RESERVED.</div>
             </div>
         </footer>
+            </ul>
+            
+        </div>
+        
         <div class="open_menu">
             <button class="close_btn">
                 <span class="it1"></span><span class="it2"></span>
