@@ -89,22 +89,23 @@
         .sec_wrap>li.on a{transform: skew(0);}
         .sec_wrap>li>a::before{display: none;}
     }
-    .page{width: 30%;height: 60%;background-color: #fff;position: absolute;top: 26%;right: 10%;transition: 0.4s;z-index: 90;opacity: 0;background-repeat: no-repeat;background-size: cover;background-position: center center;box-shadow: 0px 0px 25px #999;}
+    .page{width: 30%;height: 60%;background-color: #fff;position: absolute;top: 26%;right: 10%;transition: 0.4s;z-index: 90;background-repeat: no-repeat;background-size: cover;background-position: top center;box-shadow: 0px 0px 25px #fff;display: none;}
     .page.on{width: 100%;height: 100%;top: 0;right: 0;z-index: 99;background-color: #fff;
-    opacity: 1;}
+    display: block;}
     .page.on .page_wrap{display: block;}
     .page_wrap{opacity: 0;transition: 0.5s;transition-delay: 0.7s;width: 100%;height: auto;position: relative;background-color: #fff;display: none;overflow: hidden;}
     .page_tit{text-align: center;font-size: 8rem;letter-spacing: 0.3em;height: 100vh;line-height: 100vh;text-shadow: 5px 5px 5px #ccc;color: #121212; }
     .page.on .page_wrap{opacity: 1;}
-    .page.hon{opacity: 1;}
-    .bgi{width: 100%;height: 100%;background-color: #00000070;color: #cccccc;font-weight: bold;padding: 5px;font-size: 1.2em;}
-    #page1{background-image: url("./img/main1.JPG");}
+    .page.hon{display: block;}
+    .bgi{width: 100%;height: 100%;color: #cccccc;font-weight: bold;padding: 5px;font-size: 1.2em;transition: 2s;background-size: cover;background-position: top center;opacity: 1;}
+    .bgi:hover{background-position: bottom center;}
+    #page1 .bgi{background-image: url("./img/img1.jpg");}
     #page1.on{background-image: none;}
-    #page2{background-image: url("./img/main2.JPG");}
+    #page2 .bgi{background-image: url("./img/img2.jpg");}
     #page2.on{background-image: none;}
-    #page3{background-image: url("./img/main3.jpg");}
+    #page3 .bgi{background-image: url("./img/img3.jpg");}
     #page3.on{background-image: none;}
-    #page4{background-image: url("./img/main4.JPG");}
+    #page4 .bgi{background-image: url("./img/img4.jpg");}
     #page4.on{background-image: none;}
     .profile{width: 90%;margin: 0 auto;padding-top: 100px;height: 100vh;}
     .profile li{width: 50%;float: left;}
@@ -129,7 +130,6 @@
     #sk3 .cir{animation-name: cir3}
     #sk4 .cir{animation-name: cir4}
     #sk5 .cir{animation-name: cir4}
-    
     @keyframes cir1{
         0%{stroke-dasharray: 0;}
         100%{stroke-dasharray: 1000;}
@@ -224,6 +224,7 @@
     .thanks{font-family: 'Courgette';font-size: 4.2rem;text-align: center;padding-top: 3%;color: #333333;display: none;}
     .addr{width: 100%;height: 100%;position: relative;}
     .addr>li{width: 50%;height: 50%;float: left;border: 1px solid #eee;box-sizing: border-box;position: relative;}
+    .addr>li>a{cursor: url(./img/cur2.png)0 0,auto;}
     .icon{background-repeat: no-repeat;background-position: center center;background-size: cover;width: 100px;height: 100px;margin: 0 auto;margin-top: 17%;cursor: url(./img/cur2.png)0 0,auto;}
     .ico1{background-image: url("./img/ico3.png");}
     .ico2{background-image: url("./img/ico1.png");background-size: contain;}
@@ -318,18 +319,26 @@
         sw.find(".it1").hover(function(){
             rs.find("#page1").addClass("hon");
             rs.find("#page1").siblings().removeClass("hon");
+            rs.find(".bgi").addClass("on");
+            rs.siblings().removeClass("on");
         });
         sw.find(".it2").hover(function(){
             rs.find("#page2").addClass("hon");
             rs.find("#page2").siblings().removeClass("hon");
+            rs.find(".bgi").addClass("on");
+            rs.siblings().removeClass("on");
         });
         sw.find(".it3").hover(function(){
             rs.find("#page3").addClass("hon");
             rs.find("#page3").siblings().removeClass("hon");
+            rs.find(".bgi").addClass("on");
+            rs.siblings().removeClass("on");
         });
         sw.find(".it4").hover(function(){
             rs.find("#page4").addClass("hon");
             rs.find("#page4").siblings().removeClass("hon");
+            rs.find(".bgi").addClass("on");
+            rs.siblings().find(".bgi").removeClass("on");
         });
         $(".logo").click(function(){
             $(this).removeClass("on");
@@ -689,7 +698,7 @@
                                         - 메뉴버튼 클릭 시 오른쪽으로 슬라이드하며 표시 <br>
                                         - 각 아이콘 클릭 시 해당 컨텐츠 표시
                                     </p>
-                                    <a href="m2" class="morebtn" style="border-color: #ec4b43;">MORE</a>
+                                    <a href="m2" class="morebtn" style="border-color: #ec4b43;" target="_blank">MORE</a>
                                 </li>
                                 <li class="it2">
                                     <div class="co1 co"></div>
@@ -699,7 +708,7 @@
                                         - 메뉴버튼 클릭 시 왼쪽으로 슬라이드하며 표시 <br>
                                         - 한 페이지 높이만큼 스크롤 시 메뉴창 숨김
                                     </p>
-                                    <a href="m3" class="morebtn" style="border-color: #972632;">MORE</a>
+                                    <a href="m3" class="morebtn" style="border-color: #972632;" target="_blank">MORE</a>
                                 </li>
                             </ul>
                         </div>
@@ -744,7 +753,7 @@
                                         - 각 컨텐츠에 마우스 호버 시 애니메이션 효과 <br>
                                         - 메인 이미지 슬라이드
                                     </p>
-                                    <a href="r10" class="morebtn">MORE</a>
+                                    <a href="r10" class="morebtn" target="_blank">MORE</a>
                                 </li>
                                 <li class="it2">
                                     <div class="co1 co"></div>
@@ -754,7 +763,7 @@
                                         - 메뉴에 마우스 호버 시 서브메뉴 아래로 슬라이드 <br>
                                         - 메인 이미지 슬라이드
                                     </p>
-                                    <a href="r3" class="morebtn">MORE</a>
+                                    <a href="r3" class="morebtn" target="_blank">MORE</a>
                                 </li>
                                 <li class="it3" style="padding-left: 50px;box-sizing:border-box;">
                                     <div class="co1 co"></div>
@@ -763,7 +772,7 @@
                                     <p class="it_com2">
                                         - 각 컨텐츠에 마우스 호버 시 애니메이션 효과
                                     </p>
-                                    <a href="r9" class="morebtn">MORE</a>
+                                    <a href="r9" class="morebtn" target="_blank">MORE</a>
                                 </li>
                             </ul>
                         </div>
@@ -794,34 +803,34 @@
                             <div class="re_wrap2">
                             <ul class="dev2">
                                 <li class="it1">
-                                    <a href="r7" class="hov">
+                                    <a href="r7" class="hov" target="_blank">
                                         <h4 class="d_tit">Print bakery</h4>
                                         <p class="d_com">Column방식을 이용한 반응형 홈페이지 리뉴얼</p>
                                         <button class="more">MORE</button>
                                     </a></li>
                                 <li class="it2">
-                                    <a href="r4" class="hov">
+                                    <a href="r4" class="hov" target="_blank">
                                         <h4 class="d_tit">LG U+</h4>
                                         <p class="d_com">네거티브 마진 방법을 이용한 반응형 홈페이지 리뉴얼</p>
                                         <button class="more">MORE</button>
                                     </a>
                                 </li>
                                 <li class="it3">
-                                    <a href="r6" class="hov">
+                                    <a href="r6" class="hov" target="_blank">
                                         <h4 class="d_tit">한화자산운용</h4>
                                         <p class="d_com">calc를 이용한 반응형 홈페이지 리뉴얼</p>
                                         <button class="more">MORE</button>
                                     </a>
                                 </li>
                                 <li class="it4">
-                                    <a href="r8" class="hov">
+                                    <a href="r8" class="hov" target="_blank">
                                         <h4 class="d_tit">GRAND WALKERHILL - SEOUL</h4>
                                         <p class="d_com">flex방식을 이용한 반응형 홈페이지 리뉴얼</p>
                                         <button class="more">MORE</button>
                                     </a>
                                 </li>
                                 <li class="it5">
-                                    <a href="r1" class="hov">
+                                    <a href="r1" class="hov" target="_blank">
                                         <h4 class="d_tit">MUJI</h4>
                                         <p class="d_com">반응형 홈페이지 리뉴얼</p>
                                         <button class="more">MORE</button>
@@ -858,15 +867,12 @@
                             <ul class="addr">
                                 <li class="it1">
                                     <div class="icon ico1"></div>
-                                    <div class="address">
-                                        010-5002-6997
-                                    </div>
+                                        <a href="tel:+010-5002-6997" class="address">010-5002-6997</a>
                                 </li>
                                 <li class="it2">
                                     <div class="icon ico2"></div>
-                                    <div class="address">
-                                        dutkd456@naver.com
-                                    </div>
+                                        <a href="mailto:dutkd456@naver.com" class="address">
+                                                dutkd456@naver.com</a>
                                 </li>
                                 <li class="it3">
                                     <div class="icon ico3"></div>
@@ -878,8 +884,8 @@
                                     <div class="icon ico4"></div>
                                     <div class="address">
                                         <ul class="sns">
-                                            <li class="it1"><a href=""></a></li>
-                                            <li class="it2"><a href=""></a></li>
+                                            <li class="it1"><a href="https://www.facebook.com/profile.php?id=100002121096441" target="_blank"></a></li>
+                                            <li class="it2"><a href="https://www.instagram.com/iam_saeng/" target="_blank"></a></li>
                                         </ul>
                                     </div>
                                 </li>
